@@ -167,7 +167,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(26, 82, 118, 0.85), rgba(26, 82, 118, 0.9)), url('images/BgLogo.jpg');
+            background: linear-gradient(rgba(26, 82, 118, 0.85), rgba(26, 82, 118, 0.9)), url('Images/BgLogo.jpg');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -1099,17 +1099,8 @@
             <div style="margin-top: 50px; padding: 30px; background: var(--light); border-radius: 12px;">
                 <h2 style="text-align: center; color: var(--primary); font-size: 1.8rem; margin-bottom: 20px;">Send Us a Message</h2>
                 <div class="contact-form" style="max-width: 600px; margin: 0 auto;">
-{% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-        {% for category, message in messages %}
-            <p class="flash-message {{ category }}" style="text-align: center; margin-bottom: 15px; padding: 10px; border-radius: 6px;">
-                {{ message }}
-            </p>
-        {% endfor %}
-    {% endif %}
-{% endwith %}
 
-                    <form action="/index" method="POST">
+                    <form >
                         <div class="form-group" style="margin-bottom: 15px;">
                             <label for="name">Your Name</label>
                             <input type="text" id="name" name="name" class="form-control" required>
