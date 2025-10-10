@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COE-IOT Research Laboratory</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #1a5276;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-right: 15px;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .funding-logos {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .funding-logo {
+            height: 40px;
+            width: auto;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .funding-logo:hover {
+            opacity: 1;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 82, 118, 0.85), rgba(26, 82, 118, 0.9)), url('images/BgLogo.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Lab Gallery Section */
+        .gallery {
+            background-color: var(--light);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        /* PCBs Section */
+        .pcbs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .pcb-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pcb-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 14px 40px rgba(0,0,0,0.12);
+        }
+
+        .pcb-image {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .pcb-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .pcb-card:hover .pcb-image img {
+            transform: scale(1.05);
+        }
+
+        .pcb-content {
+            padding: 18px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .pcb-title {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .pcb-desc {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 14px;
+        }
+
+        .pcb-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pcb-badge {
+            background-color: var(--secondary);
+            color: white;
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 250px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-item-overlay {
+            transform: translateY(0);
+        }
+        
+        /* Workshops Section */
+        .workshops-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .workshop-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .workshop-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .workshop-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .workshop-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .workshop-card:hover .workshop-image img {
+            transform: scale(1.1);
+        }
+        
+        .workshop-content {
+            padding: 20px;
+        }
+        
+        .workshop-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .workshop-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Members Section */
+        .members {
+            background-color: var(--light);
+        }
+        
+        .members-table-container {
+            overflow-x: auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        
+        .members-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+        
+        .members-table th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .members-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .members-table tr:hover {
+            background-color: #f5f9fc;
+        }
+        
+        .member-role {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: var(--light);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--dark);
+        }
+        
+        .member-year {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-detail i {
+            margin-right: 15px;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content, .contact-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .funding-logos {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .gallery-grid, .workshops-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo-container">
+                    <div class="logo">COE-<span>IOT</span></div>
+                    <div class="funding-logos">
+                        <img src="Images/Veltech.jpeg" alt="University" class="funding-logo">
+                        <img src="Images/Zf.jpeg" alt="Company" class="funding-logo">
+                    </div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#gallery">Lab Gallery</a></li>
+                    <li><a href="#workshops">Workshops</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#pcbs">Latest PCBs</a></li>
+                    <li><a href="#members">Members</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Center of Excellence in Internet of Things</h1>
+                <p>Advancing IoT innovation through industry-academia collaboration and cutting-edge research.</p>
+                <a href="#about" class="btn">Explore Our Lab</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About COE-IOT Lab</h2>
+                <p>Our state-of-the-art IoT research facility is dedicated to advancing connected technologies and smart systems.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Industry-Funded Research Excellence</h3>
+                    <p>Established in 2018, the COE-IOT Laboratory is a premier research facility funded by leading technology companies including Technova and Innovate+. Our mission is to drive innovation in Internet of Things technologies through collaborative industry-academia partnerships.</p>
+                    <p>We focus on cutting-edge research in areas including smart cities, industrial IoT, connected healthcare, and sustainable energy systems. Our industry partnerships ensure that our research has real-world impact and addresses current market needs.</p>
+                    <p>With over 30 industry projects completed and 15 patents filed, we continue to push the boundaries of IoT technology and its applications across various sectors.</p>
+                    <a href="#contact" class="btn" style="margin-top: 20px;">Collaborate With Us</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="IoT Laboratory">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lab Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lab Gallery</h2>
+                <p>Explore our state-of-the-art IoT research facilities and equipment.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Main Research Area">
+                    <div class="gallery-item-overlay">
+                        <h3>Main Research Area</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sensor Testing">
+                    <div class="gallery-item-overlay">
+                        <h3>Sensor Testing Facility</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="IoT Prototyping">
+                    <div class="gallery-item-overlay">
+                        <h3>IoT Prototyping Lab</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Data Analytics">
+                    <div class="gallery-item-overlay">
+                        <h3>Data Analytics Center</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c6fe63c6d5e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Collaboration Space">
+                    <div class="gallery-item-overlay">
+                        <h3>Collaboration Space</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Industry Meeting">
+                    <div class="gallery-item-overlay">
+                        <h3>Industry Partner Meetings</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workshops Section -->
+    <section id="workshops" class="workshops">
+        <div class="container">
+            <div class="section-title">
+                <h2>Conducted Workshops</h2>
+                <p>We regularly organize workshops to share knowledge and foster collaboration in IoT technologies.</p>
+            </div>
+            <div class="workshops-container">
+                <div class="workshop-card">
+                    <div class="workshop-image">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="IoT Fundamentals">
+                    </div>
+                    <div class="workshop-content">
+                        <h3>IoT Fundamentals & Applications</h3>
+                        <div class="workshop-meta">
+                            <span><i class="far fa-calendar"></i> March 15, 2023</span>
+                            <span><i class="fas fa-users"></i> 45 Participants</span>
+                        </div>
+                        <p>A comprehensive workshop exploring IoT architecture, sensors, connectivity, and real-world applications across industries.</p>
+                    </div>
+                </div>
+                <div class="workshop-card">
+                    <div class="workshop-image">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Edge Computing">
+                    </div>
+                    <div class="workshop-content">
+                        <h3>Edge Computing for IoT Systems</h3>
+                        <div class="workshop-meta">
+                            <span><i class="far fa-calendar"></i> June 22, 2023</span>
+                            <span><i class="fas fa-users"></i> 32 Participants</span>
+                        </div>
+                        <p>Hands-on workshop focusing on edge computing architectures, fog computing, and distributed intelligence for IoT networks.</p>
+                    </div>
+                </div>
+                <div class="workshop-card">
+                    <div class="workshop-image">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="IoT Security">
+                    </div>
+                    <div class="workshop-content">
+                        <h3>IoT Security & Privacy</h3>
+                        <div class="workshop-meta">
+                            <span><i class="far fa-calendar"></i> September 8, 2023</span>
+                            <span><i class="fas fa-users"></i> 28 Participants</span>
+                        </div>
+                        <p>Exploring security challenges in IoT ecosystems and implementing robust security measures for connected devices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Completed Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Completed Projects</h2>
+                <p>Discover some of our impactful IoT projects completed in collaboration with industry partners.</p>
+            </div>
+            <div class="workshops-container">
+                <div class="workshop-card">
+                    <div class="workshop-image">
+                        <img src="Images/IoT-Trainerkit.jpg" alt="IoT-Trainerkit">
+                    </div>
+                    <div class="workshop-content">
+                        <h3>IoT-Trainer Kit</h3>
+                        <div class="workshop-meta">
+                            <span><i class="far fa-calendar"></i> 2025</span>
+                            <span><i class="fas fa-industry"></i> Innovate+ Solutions</span>
+                        </div>
+                        <p>Developed an IoT-TrainerKit for the Industry 4.0 .This have integrated with more analog,digital and indrustrial grade Sensors.</p>
+                    </div>
+                </div>
+                <div class="workshop-card">
+                    <div class="workshop-image">
+                        <img src="Images/App.jpg" alt="App Development">
+                    </div>
+                    <div class="workshop-content">
+                        <h3>Smart Control System</h3>
+                        <div class="workshop-meta">
+                            <span><i class="far fa-calendar"></i> 2025</span>
+                            <span><i class="fas fa-industry"></i> SmartTech Systems</span>
+                        </div>
+                        <p>Implemented a Smart Control System that enables remote management of city lighting and infrastructure. A dedicated app was developed to work exclusively with our custom-built IoT devices, ensuring enhanced security and seamless integration for smart city operations.</p>
+                        <p>To Know about the APP -- <a href="https://krishna99-tech.github.io/SmartHome.github.io/">Smart Home Control</a></p>
+                    </div>
+                </div>
+                <div class="workshop-card">
+                    <div class="workshop-image">
+                        <img src="" alt="App Development">
+                    </div>
+                    <div class="workshop-content">
+                        <h3>Remote Healthcare Monitoring</h3>
+                        <div class="workshop-meta">
+                            <span><i class="far fa-calendar"></i> 2024</span>
+                            <span><i class="fas fa-industry"></i> Connectivity Labs</span>
+                        </div>
+                        <p>Designed a wearable IoT device for continuous patient health monitoring, enabling early detection and remote alerts for healthcare providers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Latest PCBs Section -->
+    <section id="pcbs" class="pcbs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest PCBs</h2>
+                <p>Explore our most recent PCB designs used in research and prototypes. Click any card for details.</p>
+            </div>
+            <div class="pcbs-container">
+                <div class="pcb-card">
+                    <div class="pcb-image">
+                        <img src="Images/Pcbs/esp32-s3.jpg" alt="PCB - Esp32-s3">
+                    </div>
+                    <div class="pcb-content">
+                        <div>
+                            <div class="pcb-title">ESP32-S3 Development Board</div>
+                            <div class="pcb-desc">Costomized Esp32-s3 Board.Features Wi-Fi, BLE, and USB connectivity for rapid IoT prototyping.</div>
+                        </div>
+                        <div class="pcb-meta">
+                            <span class="pcb-badge">Prototype</span>
+                            <span class="pcb-year">2025</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pcb-card">
+                    <div class="pcb-image">
+                        <img src="Images/pcb2.jpg" alt="PCB - Relay Controller">
+                    </div>
+                    <div class="pcb-content">
+                        <div>
+                            <div class="pcb-title">Relay Controller</div>
+                            <div class="pcb-desc">High-current relay board to interface industrial loads with microcontrollers.</div>
+                        </div>
+                        <div class="pcb-meta">
+                            <span class="pcb-badge">Production</span>
+                            <span class="pcb-year">2024</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pcb-card">
+                    <div class="pcb-image">
+                        <img src="Images/pcb3.jpg" alt="PCB - LoRa Node">
+                    </div>
+                    <div class="pcb-content">
+                        <div>
+                            <div class="pcb-title">LoRa Node</div>
+                            <div class="pcb-desc">Long-range low-power communication node for remote sensing applications.</div>
+                        </div>
+                        <div class="pcb-meta">
+                            <span class="pcb-badge">Field-tested</span>
+                            <span class="pcb-year">2025</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pcb-card">
+                    <div class="pcb-image">
+                        <img src="Images/pcb4.jpg" alt="PCB - Power Management">
+                    </div>
+                    <div class="pcb-content">
+                        <div>
+                            <div class="pcb-title">Power Management</div>
+                            <div class="pcb-desc">Efficient power regulation and battery-charging board for portable IoT units.</div>
+                        </div>
+                        <div class="pcb-meta">
+                            <span class="pcb-badge">Testing</span>
+                            <span class="pcb-year">2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Single CTA Card to Lab Images Gallery -->
+    <section id="lab-cta" class="lab-cta">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lab Photo Stream</h2>
+                <p>View recent photos taken in the lab — running format gallery with thumbnails.</p>
+            </div>
+            <div style="display:flex;justify-content:center;">
+                <a href="lab-images.html" class="pcb-card" style="max-width:720px; width:100%; text-decoration:none; color:inherit;">
+                    <div class="pcb-image">
+                        <img src="Images/Gallery/ACMEE-2025.jpg" alt="Lab Photo Stream">
+                    </div>
+                    <div class="pcb-content">
+                        <div>
+                            <div class="pcb-title">Open Lab Photo Stream</div>
+                            <div class="pcb-desc">Click to open the live-running gallery page showing lab photographs with thumbnails and captions.</div>
+                        </div>
+                        <div class="pcb-meta">
+                            <span class="pcb-badge">Open Gallery</span>
+                            <span class="pcb-year">Live</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Members Section -->
+    <section id="members" class="members">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Team Members</h2>
+                <p>Meet the talented researchers and professionals who drive innovation in our IoT laboratory.</p>
+            </div>
+            <div class="members-table-container">
+                <table class="members-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Profession</th>
+                            <th>Year Joined</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dr.Arun C.A</td>
+                            <td><span class="member-role">Lead Researcher & Manager</span></td>
+                            <td>Professor</td>
+                            <td class="member-year">2022</td>
+                        </tr>
+                        <tr>
+                            <td>V. Venkata Krishna</td>
+                            <td><span class="member-role">Member</span></td>
+                            <td>E.C.E /3rd Year Student</td>
+                            <td class="member-year">2024</td>
+                        </tr>
+                        <tr>
+                            <td>M.Aditya</td>
+                            <td><span class="member-role">Member</span></td>
+                            <td>E.C.E /3rd Year Student</td>
+                            <td class="member-year">2024</td>
+                        </tr>
+                        <tr>
+                            <td>V.Janjitha</td>
+                            <td><span class="member-role">Member</span></td>
+                            <td>E.C.E /3rd Year Student</td>
+                            <td class="member-year">2024</td>
+                        </tr>
+                        <tr>
+                            <td>K.John</td>
+                            <td><span class="member-role">Member</span></td>
+                            <td>E.C.E /2rd Year Student</td>
+                            <td class="member-year">2024</td>
+                        </tr>
+                        <tr>
+                            <td>T.SeshaRaghuRam</td>
+                            <td><span class="member-role">Member</span></td>
+                            <td>E.C.E /3rd Year Student</td>
+                            <td class="member-year">2025</td>
+                        </tr>
+                                                <tr>
+                            <td>B.PranavKumar</td>
+                            <td><span class="member-role">Member</span></td>
+                            <td>E.C.E /3rd Year Student</td>
+                            <td class="member-year">2025</td>
+                        </tr>
+                        <tr>
+                            <td>S.Venkata Aviansh</td>
+                            <td><span class="member-role">Member</span></td>
+                            <td>E.E.E /3rd Year Student</td>
+                            <td class="member-year">2024</td>
+                        </tr>
+                        <tr>
+                            <td>S.Harish</td>
+                            <td><span class="member-role">Member</span></td>
+                            <td>E.E.E /3rd Year Student</td>
+                            <td class="member-year">2025</td>
+                        </tr>
+                                                <tr>
+                            <td>A.Harini</td>
+                            <td><span class="member-role">Member</span></td>
+                            <td>E.E.E /3rd Year Student</td>
+                            <td class="member-year">2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+   <!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="section-title">
+            <h2>Contact Us</h2>
+            <p>Get in touch with us for collaborations, inquiries, or to learn more about our IoT research.</p>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                <div class="contact-details">
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>29103-CoE IoT Lab, Research Park, Veltech University, No.42, Avadi-Vel Tech Road, Vel Nagar, Avadi, Chennai, Tamil Nadu, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 9751270933</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>arunca@veltech.edu.in</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <!-- Form Area (with margin for spacing) -->
+            <div style="margin-top: 50px; padding: 30px; background: var(--light); border-radius: 12px;">
+                <h2 style="text-align: center; color: var(--primary); font-size: 1.8rem; margin-bottom: 20px;">Send Us a Message</h2>
+                <div class="contact-form" style="max-width: 600px; margin: 0 auto;">
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <p class="flash-message {{ category }}" style="text-align: center; margin-bottom: 15px; padding: 10px; border-radius: 6px;">
+                {{ message }}
+            </p>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+                    <form action="/index" method="POST">
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 15px;">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" class="form-control" required rows="5"></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="background: var(--secondary); color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-weight: 600; width: 100%; margin-top: 10px;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+            <div class="footer-column">
+                <h3>COE-IOT Lab</h3>
+                <p>Advancing IoT innovation through industry-academia collaboration and cutting-edge research in connected technologies.</p>
+                <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Lab Gallery</a></li>
+                <li><a href="#workshops">Workshops</a></li>
+                <li><a href="#members">Members</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Research Areas</h3>
+                <ul class="footer-links">
+                <li><a href="#">Industrial 4.0</a></li>
+                <li><a href="#">PLC</a></li>
+                <li><a href="#">Cloud integration</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Industry Partners</h3>
+                <ul class="footer-links">
+                <li><a href="#">Innovate+ Solutions</a></li>
+                <li><a href="#">SmartTech Systems</a></li>
+                <li><a href="#">Connectivity Labs</a></li>
+                </ul>
+            </div>
+            </div>
+            <div class="copyright">
+            <p>&copy; 2025 COE-IOT Research Laboratory. All Rights Reserved.</p>
+            <p>Developed by V.Venkata Krishna</p>
+            <p>Managed by Dr. Arun C.A</p>
+        </div>
+      </div>
+        </div>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+
+        // Add active class to nav links on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
