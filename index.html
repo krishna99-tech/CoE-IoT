@@ -240,171 +240,245 @@
             gap: 20px;
         }
 
-        /* PCBs Section */
-        .pcbs-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 20px;
-        }
+/* PCBs Section */
+.pcbs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
 
-        .pcb-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-            display: flex;
-            flex-direction: column;
-        }
+.pcb-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
 
-        .pcb-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 14px 40px rgba(0,0,0,0.12);
-        }
+.pcb-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 40px rgba(0,0,0,0.12);
+}
 
-        .pcb-image {
-            width: 100%;
-            height: 180px;
-            overflow: hidden;
-        }
+/* Image container */
+.pcb-image {
+    width: 100%;
+    height: 200px; /* default desktop height */
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-shrink: 0;
+}
 
-        .pcb-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.5s ease;
-        }
+.pcb-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* show full image without cropping */
+    display: block;
+    transition: transform 0.5s ease;
+}
 
-        .pcb-card:hover .pcb-image img {
-            transform: scale(1.05);
-        }
+.pcb-card:hover .pcb-image img {
+    transform: scale(1.05);
+}
 
-        .pcb-content {
-            padding: 18px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+/* Card content */
+.pcb-content {
+    padding: 18px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-        .pcb-title {
-            font-size: 1.1rem;
-            color: var(--primary);
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
+.pcb-title {
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin-bottom: 8px;
+    font-weight: 700;
+}
 
-        .pcb-desc {
-            color: var(--gray);
-            font-size: 0.95rem;
-            margin-bottom: 14px;
-        }
+.pcb-desc {
+    color: var(--gray);
+    font-size: 0.95rem;
+    margin-bottom: 14px;
+}
 
-        .pcb-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-        }
+.pcb-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
 
-        .pcb-badge {
-            background-color: var(--secondary);
-            color: white;
-            padding: 6px 10px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-        
-        .gallery-item {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            height: 250px;
-        }
-        
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .gallery-item-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
-            color: white;
-            padding: 20px;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .gallery-item:hover .gallery-item-overlay {
-            transform: translateY(0);
-        }
-        
-        /* Workshops Section */
-        .workshops-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        
-        .workshop-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .workshop-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .workshop-image {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .workshop-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .workshop-card:hover .workshop-image img {
-            transform: scale(1.1);
-        }
-        
-        .workshop-content {
-            padding: 20px;
-        }
-        
-        .workshop-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-        
-        .workshop-meta {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-        
+.pcb-badge {
+    background-color: var(--secondary);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* ✅ Gallery Items - Full Image Fit */
+.gallery-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    height: 250px;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* show full image */
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-item-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    color: white;
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-item-overlay {
+    transform: translateY(0);
+}
+
+/* ✅ Responsive Adjustments */
+@media (max-width: 1024px) {
+    .pcb-image {
+        height: 180px;
+    }
+    .gallery-item {
+        height: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .pcb-image {
+        height: 160px;
+    }
+    .gallery-item {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pcb-image {
+        height: 140px;
+    }
+    .gallery-item {
+        height: 180px;
+    }
+}
+
+/* Workshops Section */
+.workshops-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.workshop-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.workshop-card:hover {
+    transform: translateY(-10px);
+}
+
+.workshop-image {
+    width: 100%;
+    height: 250px; /* Default height for desktop */
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.workshop-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* full image visible */
+    transition: transform 0.5s ease;
+}
+
+.workshop-card:hover .workshop-image img {
+    transform: scale(1.05);
+}
+
+.workshop-content {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.workshop-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.workshop-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+/* ✅ Responsive Image Height Adjustments */
+@media (max-width: 1024px) {
+    .workshop-image {
+        height: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .workshop-image {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .workshop-image {
+        height: 150px;
+    }
+}
+
+       
         /* Members Section */
         .members {
             background-color: var(--light);
@@ -693,7 +767,7 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>Center of Excellence in Internet of Things</h1>
+                <h1>Center of Excellence on IoT & Smart factory </h1>
                 <p>Advancing IoT innovation through industry-academia collaboration and cutting-edge research.</p>
                 <a href="#about" class="btn">Explore Our Lab</a>
             </div>
@@ -710,13 +784,13 @@
             <div class="about-content">
                 <div class="about-text">
                     <h3>Industry-Funded Research Excellence</h3>
-                    <p>Established in 2018, the COE-IOT Laboratory is a premier research facility funded by leading technology companies including Technova and Innovate+. Our mission is to drive innovation in Internet of Things technologies through collaborative industry-academia partnerships.</p>
+                    <p>Established in 2023, the CoE Laboratory is a premier research facility funded by ZF Commercial Vehicle Control Systems India Limited. Our mission is to drive innovation in Internet of Things technologies through collaborative industry-academia partnerships.</p>
                     <p>We focus on cutting-edge research in areas including smart cities, industrial IoT, connected healthcare, and sustainable energy systems. Our industry partnerships ensure that our research has real-world impact and addresses current market needs.</p>
-                    <p>With over 30 industry projects completed and 15 patents filed, we continue to push the boundaries of IoT technology and its applications across various sectors.</p>
+                    <p>With over 10+ industry projects completed and 6 patents filed, we continue to push the boundaries of IoT technology and its applications across various sectors.</p>
                     <a href="#contact" class="btn" style="margin-top: 20px;">Collaborate With Us</a>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="IoT Laboratory">
+                    <img src="Images/Coe-IoT.jpg" alt="IoT Laboratory">
                 </div>
             </div>
         </div>
@@ -731,39 +805,63 @@
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Main Research Area">
+                    <img src="Images/labGallery/ResearchArea.png" alt="Main Research Area">
                     <div class="gallery-item-overlay">
                         <h3>Main Research Area</h3>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sensor Testing">
+                    <img src="Images/labGallery/Labspace.jpg" alt="Labspace">
                     <div class="gallery-item-overlay">
-                        <h3>Sensor Testing Facility</h3>
+                        <h3>Lab Space</h3>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="IoT Prototyping">
+                    <img src="Images/labGallery/Equipment.jpg" alt="Equipment">
                     <div class="gallery-item-overlay">
-                        <h3>IoT Prototyping Lab</h3>
+                        <h3>Equipment</h3>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Data Analytics">
+                    <img src="Images/labGallery/Soldering.jpg" alt="Soldering">
                     <div class="gallery-item-overlay">
-                        <h3>Data Analytics Center</h3>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1581094794329-c6fe63c6d5e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Collaboration Space">
-                    <div class="gallery-item-overlay">
-                        <h3>Collaboration Space</h3>
+                        <h3>Soldering Station</h3>
                     </div>
                 </div>
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Industry Meeting">
                     <div class="gallery-item-overlay">
-                        <h3>Industry Partner Meetings</h3>
+                        <h3>Assembling</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/labGallery/Working.jpg" alt="Working">
+                    <div class="gallery-item-overlay">
+                        <h3>Working & Performing Tasks</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/labGallery/Pcbdevelop.jpg" alt="pcb-develop">
+                    <div class="gallery-item-overlay">
+                        <h3>Developing PCB</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/labGallery/prototype.jpg" alt="Testing">
+                    <div class="gallery-item-overlay">
+                        <h3>Testing Prototype</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/labGallery/PcbMaster.jpg" alt="PcbMaster">
+                    <div class="gallery-item-overlay">
+                        <h3>PCB-Designer</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Images/labGallery/Discussion.jpg" alt="Discussion">
+                    <div class="gallery-item-overlay">
+                        <h3>Discussion</h3>
                     </div>
                 </div>
             </div>
@@ -831,7 +929,7 @@
             <div class="workshops-container">
                 <div class="workshop-card">
                     <div class="workshop-image">
-                        <img src="Images/IoT-Trainerkit.jpg" alt="IoT-Trainerkit">
+                        <img src="Images/projects/IoT-Trainerkit.jpg" alt="IoT-Trainerkit">
                     </div>
                     <div class="workshop-content">
                         <h3>IoT-Trainer Kit</h3>
@@ -844,7 +942,7 @@
                 </div>
                 <div class="workshop-card">
                     <div class="workshop-image">
-                        <img src="Images/App.jpg" alt="App Development">
+                        <img src="Images/projects/App.jpg" alt="App Development">
                     </div>
                     <div class="workshop-content">
                         <h3>Smart Control System</h3>
@@ -858,15 +956,80 @@
                 </div>
                 <div class="workshop-card">
                     <div class="workshop-image">
-                        <img src="" alt="App Development">
+                        <img src="Images/projects/Roomoccupancy.jpg" alt="Room Occupancy Monitor">
                     </div>
                     <div class="workshop-content">
-                        <h3>Remote Healthcare Monitoring</h3>
+                        <h3>Room Occupancy Monitor</h3>
+                        <div class="workshop-meta">
+                            <span><i class="far fa-calendar"></i> 2025</span>
+                            <span><i class="fas fa-industry"></i> Innovate+ Solutions</span>
+                        </div>
+                        <p>Designed a Room Occupancy Monitor,This is particularly developed for the Placement Cell.During the Placements this device will help monitor the room status which the placement going on,The status will updated on realtime in the dashboard .Those who are waiting for the interview can see and notify.</p>
+                    </div>
+                </div>
+                 <div class="workshop-card">
+                    <div class="workshop-image">
+                        <img src="Images/projects/ESP32-Plc.jpg" alt="Esp32-PLC">
+                    </div>
+                    <div class="workshop-content">
+                        <h3>Esp32-PLC</h3>
+                        <div class="workshop-meta">
+                            <span><i class="far fa-calendar"></i> 2025</span>
+                            <span><i class="fas fa-industry"></i> Innovate+ Solutions</span>
+                        </div>
+                        <p>This project is mainly based on replacing a conventional PLC system with ESP32-based microcontroller. It serves as a low-cost alternative to traditional PLCs for industrial automation, IoT, home automation and educational purposes.</p>
+                    </div>
+                </div>
+                 <div class="workshop-card">
+                    <div class="workshop-image">
+                        <img src="Images/projects/Lorawan.jpg" alt="Lorawan">
+                    </div>
+                    <div class="workshop-content">
+                        <h3>Lorawan</h3>
+                        <div class="workshop-meta">
+                            <span><i class="far fa-calendar"></i> 2025</span>
+                            <span><i class="fas fa-industry"></i> Innovate+ Solutions</span>
+                        </div>
+                        <p>Implemented a Lorawan device that based on industrial grade protocols and Modules for industry 4.0</p>
+                    </div>
+                </div>
+                <div class="workshop-card">
+                    <div class="workshop-image">
+                        <img src="Images/projects/Esp32-s3.jpg" alt="Esp32-s3">
+                    </div>
+                    <div class="workshop-content">
+                        <h3>Esp32-S3</h3>
+                        <div class="workshop-meta">
+                            <span><i class="far fa-calendar"></i> 2025</span>
+                            <span><i class="fas fa-industry"></i> Innovate+ Solutions</span>
+                        </div>
+                        <p>Developed an Costomized Esp32-s3 module for learning and Exploring.</p>
+                    </div>
+                </div>
+                 <div class="workshop-card">
+                    <div class="workshop-image">
+                        <img src="Images/projects/optocoupler.jpg" alt="optocoupler">
+                    </div>
+                    <div class="workshop-content">
+                        <h3>OptoCoupler</h3>
+                        <div class="workshop-meta">
+                            <span><i class="far fa-calendar"></i> 2025</span>
+                            <span><i class="fas fa-industry"></i> Innovate+ Solutions</span>
+                        </div>
+                        <p>Developed an 24vto 3.3 & 3.3v to 24v OptoCoupler.</p>
+                    </div>
+                </div>
+                <div class="workshop-card">
+                    <div class="workshop-image">
+                        <img src="Images/projects/CH340C-Programmer.jpg" alt="Programmer">
+                    </div>
+                    <div class="workshop-content">
+                        <h3>CH340C-Programmer</h3>
                         <div class="workshop-meta">
                             <span><i class="far fa-calendar"></i> 2024</span>
-                            <span><i class="fas fa-industry"></i> Connectivity Labs</span>
+                            <span><i class="fas fa-industry"></i> Innovate+ Solutions</span>
                         </div>
-                        <p>Designed a wearable IoT device for continuous patient health monitoring, enabling early detection and remote alerts for healthcare providers.</p>
+                        <p>Developed an Customized Programmer for the ESP based chips.</p>
                     </div>
                 </div>
             </div>
@@ -887,7 +1050,6 @@
                     <div class="pcb-content">
                         <div>
                             <div class="pcb-title">ESP32-S3 Development Board</div>
-                            <div class="pcb-desc">Costomized Esp32-s3 Board.Features Wi-Fi, BLE, and USB connectivity for rapid IoT prototyping.</div>
                         </div>
                         <div class="pcb-meta">
                             <span class="pcb-badge">Prototype</span>
@@ -897,45 +1059,41 @@
                 </div>
                 <div class="pcb-card">
                     <div class="pcb-image">
-                        <img src="Images/pcb2.jpg" alt="PCB - Relay Controller">
+                        <img src="Images/Pcbs/Trainerkit.jpg" alt="PCB - Trainerkit">
                     </div>
                     <div class="pcb-content">
                         <div>
-                            <div class="pcb-title">Relay Controller</div>
-                            <div class="pcb-desc">High-current relay board to interface industrial loads with microcontrollers.</div>
+                            <div class="pcb-title">Trainerkit</div>
                         </div>
                         <div class="pcb-meta">
                             <span class="pcb-badge">Production</span>
-                            <span class="pcb-year">2024</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="pcb-card">
-                    <div class="pcb-image">
-                        <img src="Images/pcb3.jpg" alt="PCB - LoRa Node">
-                    </div>
-                    <div class="pcb-content">
-                        <div>
-                            <div class="pcb-title">LoRa Node</div>
-                            <div class="pcb-desc">Long-range low-power communication node for remote sensing applications.</div>
-                        </div>
-                        <div class="pcb-meta">
-                            <span class="pcb-badge">Field-tested</span>
                             <span class="pcb-year">2025</span>
                         </div>
                     </div>
                 </div>
                 <div class="pcb-card">
                     <div class="pcb-image">
-                        <img src="Images/pcb4.jpg" alt="PCB - Power Management">
+                        <img src="Images/Pcbs/programmer.jpg" alt="PCB - Programmer">
                     </div>
                     <div class="pcb-content">
                         <div>
-                            <div class="pcb-title">Power Management</div>
-                            <div class="pcb-desc">Efficient power regulation and battery-charging board for portable IoT units.</div>
+                            <div class="pcb-title">CH340C-Programmer</div>
                         </div>
                         <div class="pcb-meta">
-                            <span class="pcb-badge">Testing</span>
+                            <span class="pcb-badge">Prototype</span>
+                            <span class="pcb-year">2025</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pcb-card">
+                    <div class="pcb-image">
+                        <img src="Images/Pcbs/ESP32-PLC.jpg" alt="PCB - esp32-s3">
+                    </div>
+                    <div class="pcb-content">
+                        <div>
+                            <div class="pcb-title">Esp32-PLC</div>
+                        <div class="pcb-meta">
+                            <span class="pcb-badge">Prototype</span>
                             <span class="pcb-year">2025</span>
                         </div>
                     </div>
