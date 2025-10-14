@@ -6,232 +6,356 @@
     <title>COE-IOT Research Laboratory</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Global Styles */
+        /* ===== CSS VARIABLES ===== */
         :root {
+            /* Colors */
             --primary: #1a5276;
+            --primary-dark: #14415d;
+            --primary-light: #2c7cb0;
             --secondary: #3498db;
+            --secondary-dark: #2980b9;
             --accent: #e74c3c;
-            --light: #ecf0f1;
+            --accent-dark: #c0392b;
+            --light: #f8f9fa;
+            --light-gray: #ecf0f1;
+            --medium-gray: #bdc3c7;
             --dark: #2c3e50;
-            --gray: #95a5a6;
+            --dark-gray: #34495e;
+            --text: #333333;
+            --text-light: #6c757d;
+            --white: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --shadow-dark: rgba(0, 0, 0, 0.15);
+            
+            /* Typography */
+            --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-heading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+            /* Spacing */
+            --section-padding: 5rem 0;
+            --container-max-width: 1200px;
+            --border-radius: 8px;
+            --border-radius-lg: 12px;
+            --transition: all 0.3s ease;
+            --transition-slow: all 0.5s ease;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 4px var(--shadow);
+            --shadow-md: 0 4px 8px var(--shadow);
+            --shadow-lg: 0 8px 16px var(--shadow);
+            --shadow-xl: 0 10px 30px var(--shadow-dark);
         }
         
+        /* ===== GLOBAL STYLES ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
         }
         
         body {
-            background-color: #f9f9f9;
-            color: #333;
+            font-family: var(--font-primary);
+            font-size: 1rem;
             line-height: 1.6;
+            color: var(--text);
+            background-color: var(--white);
+            overflow-x: hidden;
         }
         
         .container {
             width: 90%;
-            max-width: 1200px;
+            max-width: var(--container-max-width);
             margin: 0 auto;
             padding: 0 15px;
         }
         
         section {
-            padding: 80px 0;
+            padding: var(--section-padding);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 3rem;
             position: relative;
         }
         
         .section-title h2 {
-            font-size: 2.5rem;
             color: var(--primary);
-            margin-bottom: 15px;
+            margin-bottom: 1rem;
         }
         
         .section-title p {
-            color: var(--gray);
+            color: var(--text-light);
             max-width: 700px;
             margin: 0 auto;
+            font-size: 1.1rem;
         }
         
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -15px;
+            bottom: -1rem;
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background-color: var(--secondary);
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
         }
         
+        /* ===== BUTTONS ===== */
         .btn {
-            display: inline-block;
-            padding: 12px 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.875rem;
             background-color: var(--secondary);
-            color: white;
+            color: var(--white);
             border: none;
-            border-radius: 4px;
+            border-radius: var(--border-radius);
             cursor: pointer;
             font-size: 1rem;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             text-decoration: none;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
         }
         
         .btn:hover {
-            background-color: #2980b9;
+            background-color: var(--secondary-dark);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-lg);
         }
         
-/* Header Styles */
-header {
-    background-color: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--primary);
-}
-
-.logo span {
-    color: var(--secondary);
-}
-
-/* Funding logos */
-.funding-logos {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.funding-logo {
-    height: 80px;
-    width: auto;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-}
-
-.funding-logo:hover {
-    opacity: 1;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-}
-
-.nav-links li {
-    margin-left: 30px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--dark);
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: var(--secondary);
-}
-
-.menu-toggle {
-    display: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-}
-
-/* ✅ Responsive Adjustments */
-@media (max-width: 1024px) {
-    .funding-logo {
-        height: 60px;
-    }
-}
-
-@media (max-width: 768px) {
-    /* Keep funding logos visible on mobile! */
-    /* .funding-logos { display: none; } */ /* removed/commented out */
-
-    /* Show hamburger/menu toggle */
-    .menu-toggle {
-        display: block;
-    }
-
-    /* Stack logo and menu vertically if needed */
-    .navbar {
-        padding: 10px 0;
-    }
-
-    .logo {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo {
-        font-size: 1.3rem;
-    }
-}
-
-        /* Hero Section */
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+        }
+        
+        .btn-accent:hover {
+            background-color: var(--accent-dark);
+        }
+        
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow-md);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 0;
+            transition: var(--transition);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        /* Funding logos */
+        .funding-logos {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+        
+        .funding-logo {
+            height: 80px;
+            width: auto;
+            opacity: 0.8;
+            transition: var(--transition);
+            filter: grayscale(30%);
+        }
+        
+        .funding-logo:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.875rem;
+        }
+        
+        .nav-links a {
+            font-weight: 600;
+            color: var(--dark);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+        
+        /* ===== HERO SECTION ===== */
         .hero {
-            background: linear-gradient(rgba(26, 82, 118, 0.85), rgba(26, 82, 118, 0.9)), url('Images/BgLogo.jpg');
+            background: linear-gradient(135deg, rgba(26, 82, 118, 0.85) 0%, rgba(52, 152, 219, 0.8) 100%), url('Images/BgLogo.jpg');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             height: 100vh;
             display: flex;
             align-items: center;
             text-align: center;
-            color: white;
-            margin-top: 70px;
+            color: var(--white);
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(transparent, var(--white));
+            z-index: 1;
         }
         
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
         
         .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem;
             line-height: 1.2;
+            color: var(--white);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
         
         .hero p {
             font-size: 1.2rem;
-            margin-bottom: 30px;
+            margin-bottom: 2rem;
+            opacity: 0.9;
         }
         
-        /* About Section */
+        /* ===== ABOUT SECTION ===== */
         .about-content {
             display: flex;
             align-items: center;
-            gap: 50px;
+            gap: 3.125rem;
         }
         
         .about-text {
@@ -239,306 +363,323 @@ header {
         }
         
         .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
             color: var(--primary);
+            margin-bottom: 1.25rem;
         }
         
         .about-image {
             flex: 1;
-            border-radius: 8px;
+            border-radius: var(--border-radius-lg);
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-xl);
+            position: relative;
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-light), transparent);
+            opacity: 0;
+            transition: var(--transition-slow);
+            z-index: 1;
+        }
+        
+        .about-image:hover::before {
+            opacity: 0.1;
         }
         
         .about-image img {
             width: 100%;
             height: auto;
             display: block;
-            transition: transform 0.5s ease;
+            transition: var(--transition-slow);
         }
         
         .about-image:hover img {
             transform: scale(1.05);
         }
         
-        /* Lab Gallery Section */
+        /* ===== GALLERY SECTION ===== */
         .gallery {
-            background-color: var(--light);
+            background-color: var(--light-gray);
         }
         
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 1.25rem;
         }
-        /* PCBs Section */
-.pcbs-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 20px;
-}
-
-.pcb-card {
-    background-color: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.pcb-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 14px 40px rgba(0,0,0,0.12);
-}
-
-/* Image container */
-.pcb-image {
-    width: 100%;
-    height: 200px; /* default desktop height */
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    flex-shrink: 0;
-}
-
-.pcb-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* show full image without cropping */
-    display: block;
-    transition: transform 0.5s ease;
-}
-
-.pcb-card:hover .pcb-image img {
-    transform: scale(1.05);
-}
-
-/* Card content */
-.pcb-content {
-    padding: 18px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.pcb-title {
-    font-size: 1.1rem;
-    color: var(--primary);
-    margin-bottom: 8px;
-    font-weight: 700;
-}
-
-.pcb-desc {
-    color: var(--gray);
-    font-size: 0.95rem;
-    margin-bottom: 14px;
-}
-
-.pcb-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-}
-
-.pcb-badge {
-    background-color: var(--secondary);
-    color: white;
-    padding: 6px 10px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-}
-
-/* ✅ Gallery Items - Full Image Fit */
-.gallery-item {
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    height: 250px;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* show full image */
-    transition: transform 0.5s ease;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.08);
-}
-
-.gallery-item-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.7));
-    color: white;
-    padding: 20px;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
-}
-
-.gallery-item:hover .gallery-item-overlay {
-    transform: translateY(0);
-}
-
-/* ✅ Responsive Adjustments */
-@media (max-width: 1024px) {
-    .pcb-image {
-        height: 180px;
-    }
-    .gallery-item {
-        height: 220px;
-    }
-}
-
-@media (max-width: 768px) {
-    .pcb-image {
-        height: 160px;
-    }
-    .gallery-item {
-        height: 200px;
-    }
-}
-
-@media (max-width: 480px) {
-    .pcb-image {
-        height: 140px;
-    }
-    .gallery-item {
-        height: 180px;
-    }
-}
-
-/* Workshops Section */
-.workshops-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 30px;
-}
-
-.workshop-card {
-    background-color: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.workshop-card:hover {
-    transform: translateY(-10px);
-}
-
-.workshop-image {
-    width: 100%;
-    height: 250px; /* Default height for desktop */
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    flex-shrink: 0;
-}
-
-.workshop-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* full image visible */
-    transition: transform 0.5s ease;
-}
-
-.workshop-card:hover .workshop-image img {
-    transform: scale(1.05);
-}
-
-.workshop-content {
-    padding: 20px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.workshop-content h3 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-    color: var(--primary);
-}
-
-.workshop-meta {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    color: var(--gray);
-    font-size: 0.9rem;
-}
-
-/* ✅ Responsive Image Height Adjustments */
-@media (max-width: 1024px) {
-    .workshop-image {
-        height: 220px;
-    }
-}
-
-@media (max-width: 768px) {
-    .workshop-image {
-        height: 180px;
-    }
-}
-
-@media (max-width: 480px) {
-    .workshop-image {
-        height: 150px;
-    }
-}
-
- 
-      
-        /* Members Section */
-        .members {
+        
+        .gallery-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            height: 250px;
             background-color: var(--light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: var(--transition-slow);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        .gallery-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: var(--white);
+            padding: 1.25rem;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-item-overlay {
+            transform: translateY(0);
+        }
+        
+        /* ===== PCBS SECTION ===== */
+        .pcbs-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.25rem;
+        }
+        
+        .pcb-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+        }
+        
+        .pcb-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+        
+        .pcb-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .pcb-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        /* Image container */
+        .pcb-image {
+            width: 100%;
+            height: 200px;
+            background-color: var(--light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .pcb-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: var(--transition-slow);
+        }
+        
+        .pcb-card:hover .pcb-image img {
+            transform: scale(1.05);
+        }
+        
+        /* Card content */
+        .pcb-content {
+            padding: 1.125rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .pcb-title {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .pcb-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 0.875rem;
+        }
+        
+        .pcb-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.625rem;
+        }
+        
+        .pcb-badge {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 0.375rem 0.625rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        /* ===== WORKSHOPS SECTION ===== */
+        .workshops-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.875rem;
+        }
+        
+        .workshop-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+        }
+        
+        .workshop-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+        
+        .workshop-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .workshop-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .workshop-image {
+            width: 100%;
+            height: 250px;
+            background-color: var(--light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .workshop-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: var(--transition-slow);
+        }
+        
+        .workshop-card:hover .workshop-image img {
+            transform: scale(1.05);
+        }
+        
+        .workshop-content {
+            padding: 1.25rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .workshop-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.625rem;
+            color: var(--primary);
+        }
+        
+        .workshop-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.9375rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* ===== MEMBERS SECTION ===== */
+        .members {
+            background-color: var(--light-gray);
         }
         
         .members-table-container {
             overflow-x: auto;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-radius: 8px;
+            box-shadow: var(--shadow-md);
+            border-radius: var(--border-radius);
+            background-color: var(--white);
         }
         
         .members-table {
             width: 100%;
             border-collapse: collapse;
-            background-color: white;
+            background-color: var(--white);
         }
         
         .members-table th {
             background-color: var(--primary);
-            color: white;
-            padding: 15px;
+            color: var(--white);
+            padding: 0.9375rem;
             text-align: left;
+            font-weight: 600;
         }
         
         .members-table td {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
+            padding: 0.9375rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .members-table tr {
+            transition: var(--transition);
         }
         
         .members-table tr:hover {
@@ -547,11 +688,12 @@ header {
         
         .member-role {
             display: inline-block;
-            padding: 5px 10px;
-            background-color: var(--light);
+            padding: 0.3125rem 0.625rem;
+            background-color: var(--light-gray);
             border-radius: 20px;
             font-size: 0.8rem;
             color: var(--dark);
+            font-weight: 600;
         }
         
         .member-year {
@@ -559,10 +701,10 @@ header {
             font-weight: 600;
         }
         
-        /* Contact Section */
+        /* ===== CONTACT SECTION ===== */
         .contact-content {
             display: flex;
-            gap: 50px;
+            gap: 3.125rem;
         }
         
         .contact-info {
@@ -570,25 +712,26 @@ header {
         }
         
         .contact-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
             color: var(--primary);
+            margin-bottom: 1.25rem;
         }
         
         .contact-details {
-            margin-bottom: 30px;
+            margin-bottom: 1.875rem;
         }
         
         .contact-detail {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 0.9375rem;
         }
         
         .contact-detail i {
-            margin-right: 15px;
+            margin-right: 0.9375rem;
             color: var(--secondary);
             font-size: 1.2rem;
+            width: 20px;
+            text-align: center;
         }
         
         .contact-form {
@@ -596,21 +739,29 @@ header {
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 0.5rem;
             font-weight: 600;
+            color: var(--dark);
         }
         
         .form-control {
             width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            padding: 0.75rem 0.9375rem;
+            border: 1px solid var(--medium-gray);
+            border-radius: var(--border-radius);
             font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
         }
         
         textarea.form-control {
@@ -618,19 +769,19 @@ header {
             resize: vertical;
         }
         
-        /* Footer */
+        /* ===== FOOTER ===== */
         footer {
             background-color: var(--primary);
-            color: white;
-            padding: 60px 0 30px;
+            color: var(--white);
+            padding: 3.75rem 0 1.875rem;
         }
         
         .footer-content {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
         }
         
         .footer-column {
@@ -640,9 +791,10 @@ header {
         
         .footer-column h3 {
             font-size: 1.3rem;
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 0.625rem;
+            color: var(--white);
         }
         
         .footer-column h3::after {
@@ -655,28 +807,24 @@ header {
             background-color: var(--secondary);
         }
         
-        .footer-links {
-            list-style: none;
-        }
-        
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 0.625rem;
         }
         
         .footer-links a {
             color: #ddd;
-            text-decoration: none;
-            transition: color 0.3s ease;
+            transition: var(--transition);
         }
         
         .footer-links a:hover {
             color: var(--secondary);
+            padding-left: 5px;
         }
         
         .social-links {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 0.9375rem;
+            margin-top: 1.25rem;
         }
         
         .social-links a {
@@ -687,9 +835,8 @@ header {
             height: 40px;
             background-color: rgba(255,255,255,0.1);
             border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
+            color: var(--white);
+            transition: var(--transition);
         }
         
         .social-links a:hover {
@@ -699,24 +846,38 @@ header {
         
         .copyright {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 1.875rem;
             border-top: 1px solid rgba(255,255,255,0.1);
             color: #ddd;
             font-size: 0.9rem;
         }
         
-        /* Responsive Styles */
+        /* ===== RESPONSIVE STYLES ===== */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
         @media (max-width: 992px) {
             .about-content, .contact-content {
                 flex-direction: column;
             }
             
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
             }
             
             .funding-logos {
                 display: none;
+            }
+            
+            .workshops-container {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
         }
         
@@ -727,16 +888,17 @@ header {
             
             .nav-links {
                 position: fixed;
-                top: 70px;
+                top: 80px;
                 left: 0;
                 width: 100%;
-                background-color: white;
+                background-color: var(--white);
                 flex-direction: column;
                 align-items: center;
-                padding: 20px 0;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 1.25rem 0;
+                box-shadow: var(--shadow-lg);
                 transform: translateY(-150%);
-                transition: transform 0.3s ease;
+                transition: var(--transition);
+                z-index: 999;
             }
             
             .nav-links.active {
@@ -744,7 +906,13 @@ header {
             }
             
             .nav-links li {
-                margin: 15px 0;
+                margin: 0.9375rem 0;
+            }
+            
+            .hero {
+                margin-top: 70px;
+                height: 80vh;
+                background-attachment: scroll;
             }
             
             .hero h1 {
@@ -754,6 +922,18 @@ header {
             .section-title h2 {
                 font-size: 2rem;
             }
+            
+            .gallery-grid, .pcbs-container, .workshops-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .pcb-image, .workshop-image {
+                height: 180px;
+            }
+            
+            .gallery-item {
+                height: 200px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -761,48 +941,286 @@ header {
                 font-size: 1.8rem;
             }
             
-            .gallery-grid, .workshops-container {
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .gallery-grid, .pcbs-container, .workshops-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .pcb-image, .workshop-image {
+                height: 160px;
+            }
+            
+            .gallery-item {
+                height: 180px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                height: 70vh;
+            }
+            
+            .pcb-image, .workshop-image {
+                height: 140px;
+            }
+            
+            .gallery-item {
+                height: 160px;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* ===== UTILITY CLASSES ===== */
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-primary {
+            color: var(--primary);
+        }
+        
+        .text-secondary {
+            color: var(--secondary);
+        }
+        
+        .bg-light {
+            background-color: var(--light);
+        }
+        
+        .bg-gray {
+            background-color: var(--light-gray);
+        }
+        
+        .mt-1 { margin-top: 0.5rem; }
+        .mt-2 { margin-top: 1rem; }
+        .mt-3 { margin-top: 1.5rem; }
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 1.5rem; }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        
+        /* ===== IMPROVED ALIGNMENT STYLES ===== */
+        .align-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .align-between {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .align-around {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        .align-evenly {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        
+        .align-start {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        
+        .align-end {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        
+        .flex-column {
+            flex-direction: column;
+        }
+        
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+        
+        .gap-1 { gap: 0.5rem; }
+        .gap-2 { gap: 1rem; }
+        .gap-3 { gap: 1.5rem; }
+        .gap-4 { gap: 2rem; }
+        
+        /* ===== IMPROVED FORM STYLING ===== */
+        .form-container {
+            background: var(--light);
+            border-radius: var(--border-radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .form-title {
+            text-align: center;
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* ===== IMPROVED CARD STYLING ===== */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .card-header {
+            padding: 1.5rem;
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        /* ===== IMPROVED TABLE STYLING ===== */
+        .table-responsive {
+            overflow-x: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+        }
+        
+        .table th {
+            background: var(--primary);
+            color: var(--white);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .table tr:hover {
+            background: #f8fafc;
+        }
+        
+        /* ===== IMPROVED NAVIGATION ===== */
+        .nav-item {
+            position: relative;
+        }
+        
+        .nav-item.active a {
+            color: var(--secondary);
+        }
+        
+        .nav-item.active a::after {
+            width: 100%;
+        }
+        
+        /* ===== IMPROVED HERO SECTION ===== */
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        /* ===== IMPROVED CONTACT SECTION ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        @media (max-width: 992px) {
+            .contact-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-<header>
-    <div class="container">
-        <nav class="navbar">
-            <!-- Funding logos moved outside -->
-            <div class="logo-container">
-                <img src="Images/Veltech.jpeg" alt="University" class="funding-logo">
-                <img src="Images/Zf.jpeg" alt="Company" class="funding-logo">
-            </div>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo-container">
+                    <img src="Images/Veltech.jpeg" alt="University" class="funding-logo">
+                    <img src="Images/Zf.jpeg" alt="Company" class="funding-logo">
+                </div>
 
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#gallery">Lab Gallery</a></li>
-                <li><a href="#workshops">Workshops</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#pcbs">Latest PCBs</a></li>
-                <li><a href="#members">Members</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+                <ul class="nav-links">
+                    <li class="nav-item"><a href="#home">Home</a></li>
+                    <li class="nav-item"><a href="#about">About</a></li>
+                    <li class="nav-item"><a href="#gallery">Lab Gallery</a></li>
+                    <li class="nav-item"><a href="#workshops">Workshops</a></li>
+                    <li class="nav-item"><a href="#projects">Projects</a></li>
+                    <li class="nav-item"><a href="#pcbs">Latest PCBs</a></li>
+                    <li class="nav-item"><a href="#members">Members</a></li>
+                    <li class="nav-item"><a href="#contact">Contact</a></li>
+                </ul>
 
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
-    </div>
-</header>
-
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>Center of Excellence on IoT & Smart factory </h1>
+                <h1>Center of Excellence on IoT & Smart Factory</h1>
                 <p>Advancing IoT innovation through industry-academia collaboration and cutting-edge research.</p>
-                <a href="#about" class="btn">Explore Our Lab</a>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn">Explore Our Lab</a>
+                    <a href="#contact" class="btn btn-primary">Collaborate With Us</a>
+                </div>
             </div>
         </div>
     </section>
@@ -975,6 +1393,19 @@ header {
                 </div>
                 <div class="workshop-card">
                     <div class="workshop-image">
+                        <img src="Images/projects/Datalogger.jpg" alt="Datalogger">
+                    </div>
+                    <div class="workshop-content">
+                        <h3>Datalogger</h3>
+                        <div class="workshop-meta">
+                            <span><i class="far fa-calendar"></i> 2025</span>
+                            <span><i class="fas fa-industry"></i> Innovate+ Solutions</span>
+                        </div>
+                        <p>This is RS-485 based Datalogger that can be store data in the on-board sdcard and also it will send the data to the Cloud in the realtime.</p>
+                    </div>
+                </div>
+                <div class="workshop-card">
+                    <div class="workshop-image">
                         <img src="Images/projects/App.jpg" alt="App Development">
                     </div>
                     <div class="workshop-content">
@@ -1000,7 +1431,7 @@ header {
                         <p>Designed a Room Occupancy Monitor,This is particularly developed for the Placement Cell.During the Placements this device will help monitor the room status which the placement going on,The status will updated on realtime in the dashboard .Those who are waiting for the interview can see and notify.</p>
                     </div>
                 </div>
-                 <div class="workshop-card">
+                <div class="workshop-card">
                     <div class="workshop-image">
                         <img src="Images/projects/ESP32-PLC.jpg" alt="Esp32-PLC">
                     </div>
@@ -1010,10 +1441,10 @@ header {
                             <span><i class="far fa-calendar"></i> 2025</span>
                             <span><i class="fas fa-industry"></i> Innovate+ Solutions</span>
                         </div>
-                        <p>This project is mainly based on replacing a conventional PLC system with ESP32-based microcontroller. It serves as a low-cost alternative to traditional PLCs for industrial automation, IoT, home automation and educational purposes.</p>
+                        <p>This project is mainly based on replacing a conventional PLC system with ESP32-based microcontroller. It serves as a low-cost alternative to traditional PLCs for industrial automation, IoT, home automation and educational purposes.</p>
                     </div>
                 </div>
-                 <div class="workshop-card">
+                <div class="workshop-card">
                     <div class="workshop-image">
                         <img src="Images/projects/Lorawan.jpg" alt="Lorawan">
                     </div>
@@ -1039,7 +1470,7 @@ header {
                         <p>Developed an Costomized Esp32-s3 module for learning and Exploring.</p>
                     </div>
                 </div>
-                 <div class="workshop-card">
+                <div class="workshop-card">
                     <div class="workshop-image">
                         <img src="Images/projects/optocoupler.jpg" alt="optocoupler">
                     </div>
@@ -1068,6 +1499,7 @@ header {
             </div>
         </div>
     </section>
+
     <!-- Latest PCBs Section -->
     <section id="pcbs" class="pcbs">
         <div class="container">
@@ -1125,9 +1557,10 @@ header {
                     <div class="pcb-content">
                         <div>
                             <div class="pcb-title">Esp32-PLC</div>
-                        <div class="pcb-meta">
-                            <span class="pcb-badge">Prototype</span>
-                            <span class="pcb-year">2025</span>
+                            <div class="pcb-meta">
+                                <span class="pcb-badge">Prototype</span>
+                                <span class="pcb-year">2025</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1142,7 +1575,7 @@ header {
                 <h2>Lab Photo Stream</h2>
                 <p>View recent photos taken in the lab — running format gallery with thumbnails.</p>
             </div>
-            <div style="display:flex;justify-content:center;">
+            <div class="align-center">
                 <a href="lab-images.html" class="pcb-card" style="max-width:720px; width:100%; text-decoration:none; color:inherit;">
                     <div class="pcb-image">
                         <img src="Images/Gallery/ACMEE-2025.jpg" alt="Lab Photo Stream">
@@ -1169,8 +1602,8 @@ header {
                 <h2>Our Team Members</h2>
                 <p>Meet the talented researchers and professionals who drive innovation in our IoT laboratory.</p>
             </div>
-            <div class="members-table-container">
-                <table class="members-table">
+            <div class="table-responsive">
+                <table class="table">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -1185,6 +1618,18 @@ header {
                             <td><span class="member-role">Lead Researcher & Manager</span></td>
                             <td>Professor</td>
                             <td class="member-year">2022</td>
+                        </tr>
+                        <tr>
+                            <td>Sankari</td>
+                            <td><span class="member-role">Member</span></td>
+                            <td>E.C.E/Research Scholar</td>
+                            <td class="member-year">2025</td>
+                        </tr>
+                        <tr>
+                            <td>Saddam Hussain</td>
+                            <td><span class="member-role">Member</span></td>
+                            <td>E.C.E /4rd Year Student</td>
+                            <td class="member-year">2024</td>
                         </tr>
                         <tr>
                             <td>V. Venkata Krishna</td>
@@ -1211,7 +1656,7 @@ header {
                             <td class="member-year">2024</td>
                         </tr>
                         <tr>
-                            <td>K.Harsha</td>
+                            <td>K.Harsha Sai</td>
                             <td><span class="member-role">Member</span></td>
                             <td>E.C.E /2rd Year Student</td>
                             <td class="member-year">2024</td>
@@ -1222,10 +1667,16 @@ header {
                             <td>E.C.E /3rd Year Student</td>
                             <td class="member-year">2025</td>
                         </tr>
-                                                <tr>
+                        <tr>
                             <td>B.PranavKumar</td>
                             <td><span class="member-role">Member</span></td>
                             <td>E.C.E /3rd Year Student</td>
+                            <td class="member-year">2025</td>
+                        </tr>
+                        <tr>
+                            <td>A.Surya</td>
+                            <td><span class="member-role">Member</span></td>
+                            <td>E.E.E /4rd Year Student</td>
                             <td class="member-year">2025</td>
                         </tr>
                         <tr>
@@ -1240,10 +1691,46 @@ header {
                             <td>E.E.E /3rd Year Student</td>
                             <td class="member-year">2025</td>
                         </tr>
-                                                <tr>
+                        <tr>
+                            <td>T.Sudharshan</td>
+                            <td><span class="member-role">Member</span></td>
+                            <td>E.E.E /3rd Year Student</td>
+                            <td class="member-year">2025</td>
+                        </tr>
+                        <tr>
                             <td>A.Harini</td>
                             <td><span class="member-role">Member</span></td>
                             <td>E.E.E /3rd Year Student</td>
+                            <td class="member-year">2025</td>
+                        </tr>
+                        <tr>
+                            <td>Daniel Ford</td>
+                            <td><span class="member-role">Member</span></td>
+                            <td>Bio-Mech/4rd Year Student</td>
+                            <td class="member-year">2024</td>
+                        </tr>
+                        <tr>
+                            <td>B.Bhavana</td>
+                            <td><span class="member-role">Member</span></td>
+                            <td>C.S.E(AI&ML) /3rd Year Student</td>
+                            <td class="member-year">2025</td>
+                        </tr>
+                        <tr>
+                            <td>P.Hruday Santhosh</td>
+                            <td><span class="member-role">Member</span></td>
+                            <td>C.S.E(AI&ML) /3rd Year Student</td>
+                            <td class="member-year">2025</td>
+                        </tr>
+                        <tr>
+                            <td>U.Mounika</td>
+                            <td><span class="member-role">Member</span></td>
+                            <td>C.S.E(AI&ML) /3rd Year Student</td>
+                            <td class="member-year">2025</td>
+                        </tr>
+                        <tr>
+                            <td>B.Pramitha Reddy</td>
+                            <td><span class="member-role">Member</span></td>
+                            <td>C.S.E(AI&ML) /2rd Year Student</td>
                             <td class="member-year">2025</td>
                         </tr>
                     </tbody>
@@ -1252,124 +1739,122 @@ header {
         </div>
     </section>
 
-   <!-- Contact Section -->
-<section id="contact" class="contact">
-    <div class="container">
-        <div class="section-title">
-            <h2>Contact Us</h2>
-            <p>Get in touch with us for collaborations, inquiries, or to learn more about our IoT research.</p>
-        </div>
-        <div class="contact-content">
-            <div class="contact-info">
-                <h3>Get In Touch</h3>
-                <div class="contact-details">
-                    <div class="contact-detail">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Location</h4>
-                            <p>29103-CoE IoT Lab, Research Park, Veltech University, No.42, Avadi-Vel Tech Road, Vel Nagar, Avadi, Chennai, Tamil Nadu, India</p>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with us for collaborations, inquiries, or to learn more about our IoT research.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>29103-CoE IoT Lab, Research Park, Veltech University, No.42, Avadi-Vel Tech Road, Vel Nagar, Avadi, Chennai, Tamil Nadu, India</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+91 9751270933</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>arunca@veltech.edu.in</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="contact-detail">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>+91 9751270933</p>
-                        </div>
-                    </div>
-                    <div class="contact-detail">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>arunca@veltech.edu.in</p>
-                        </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                <div class="form-container">
+                    <h2 class="form-title">Send Us a Message</h2>
+                    <div class="contact-form">
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" name="message" class="form-control" required rows="5"></textarea>
+                            </div>
+                            <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <!-- Form Area (with margin for spacing) -->
-            <div style="margin-top: 50px; padding: 30px; background: var(--light); border-radius: 12px;">
-                <h2 style="text-align: center; color: var(--primary); font-size: 1.8rem; margin-bottom: 20px;">Send Us a Message</h2>
-                <div class="contact-form" style="max-width: 600px; margin: 0 auto;">
-
-                    <form >
-                        <div class="form-group" style="margin-bottom: 15px;">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" class="form-control" required>
-                        </div>
-                        <div class="form-group" style="margin-bottom: 15px;">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
-                        </div>
-                        <div class="form-group" style="margin-bottom: 15px;">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" class="form-control" required>
-                        </div>
-                        <div class="form-group" style="margin-bottom: 15px;">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" name="message" class="form-control" required rows="5"></textarea>
-                        </div>
-                        <button type="submit" class="btn" style="background: var(--secondary); color: white; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; font-weight: 600; width: 100%; margin-top: 10px;">Send Message</button>
-                    </form>
-                </div>
-            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
-            <div class="footer-column">
-                <h3>COE-IOT Lab</h3>
-                <p>Advancing IoT innovation through industry-academia collaboration and cutting-edge research in connected technologies.</p>
-                <div class="social-links">
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+                <div class="footer-column">
+                    <h3>COE-IOT Lab</h3>
+                    <p>Advancing IoT innovation through industry-academia collaboration and cutting-edge research in connected technologies.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#gallery">Lab Gallery</a></li>
+                        <li><a href="#workshops">Workshops</a></li>
+                        <li><a href="#members">Members</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Research Areas</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Industrial 4.0</a></li>
+                        <li><a href="#">PLC</a></li>
+                        <li><a href="#">Cloud integration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Industry Partners</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Innovate+ Solutions</a></li>
+                        <li><a href="#">SmartTech Systems</a></li>
+                        <li><a href="#">Connectivity Labs</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#gallery">Lab Gallery</a></li>
-                <li><a href="#workshops">Workshops</a></li>
-                <li><a href="#members">Members</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Research Areas</h3>
-                <ul class="footer-links">
-                <li><a href="#">Industrial 4.0</a></li>
-                <li><a href="#">PLC</a></li>
-                <li><a href="#">Cloud integration</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Industry Partners</h3>
-                <ul class="footer-links">
-                <li><a href="#">Innovate+ Solutions</a></li>
-                <li><a href="#">SmartTech Systems</a></li>
-                <li><a href="#">Connectivity Labs</a></li>
-                </ul>
-            </div>
-            </div>
             <div class="copyright">
-            <p>&copy; 2025 COE-IOT Research Laboratory. All Rights Reserved.</p>
-            <p>Developed by V.Venkata Krishna</p>
-            <p>Managed by Dr. Arun C.A</p>
+                <p>&copy; 2025 COE-IOT Research Laboratory. All Rights Reserved.</p>
+                <p>Developed by V.Venkata Krishna</p>
+                <p>Managed by Dr. Arun C.A</p>
+            </div>
         </div>
-      </div>
-        </div>
+    </footer>
 
     <script>
         // Mobile Menu Toggle
@@ -1418,6 +1903,21 @@ header {
                     link.classList.add('active');
                 }
             });
+            
+            // Header scroll effect
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Form submission handling
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
         });
     </script>
 </body>

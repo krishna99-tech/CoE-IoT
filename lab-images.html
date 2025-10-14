@@ -6,164 +6,851 @@
     <title>Lab Photo Stream</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root{
+        :root {
             --primary: #1a5276;
+            --primary-dark: #14415d;
             --secondary: #3498db;
+            --secondary-dark: #2980b9;
+            --accent: #e74c3c;
             --light: #f7f9fb;
             --dark: #2c3e50;
             --gray: #95a5a6;
+            --gray-light: #ecf0f1;
+            --shadow: 0 8px 30px rgba(0,0,0,0.08);
+            --shadow-lg: 0 15px 40px rgba(0,0,0,0.12);
+            --transition: all 0.3s ease;
+            --transition-slow: all 0.5s ease;
         }
-        *{box-sizing:border-box}
-        body{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background:var(--light); color:var(--dark)}
-        .container{width:90%; max-width:1100px; margin:40px auto;}
-        .section-title{ text-align:center; margin-bottom:24px }
-        .section-title h2{ color:var(--primary); font-size:2rem }
-        .carousel{ background:white; border-radius:12px; box-shadow:0 8px 30px rgba(0,0,0,0.08); overflow:hidden }
-        .main-slide{ position:relative; width:100%; padding-top:56.25%; /* 16:9 */ }
-        .main-slide img{ 
-            position:absolute; 
-            top:0; left:0; 
-            width:100%; 
-            height:100%; 
-            object-fit:cover;
-            transition: opacity 0.6s ease-in-out; /* Fade transition duration */
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        /* Prevent image dragging */
+        img {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .section-title h2 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .carousel {
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .carousel:hover {
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .main-slide {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 aspect ratio */
+            overflow: hidden;
+        }
+        
+        .main-slide img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.6s ease-in-out;
             opacity: 1;
         }
+        
         .main-slide img.fade-out {
             opacity: 0;
         }
-        .caption{ 
-            position:absolute; 
-            left:16px; 
-            bottom:12px; 
-            background:rgba(0,0,0,0.5); 
-            color:white; 
-            padding:8px 12px; 
-            border-radius:6px; 
-            font-size:0.95rem;
-            transition: opacity 0.3s ease-in-out; /* Subtle caption fade */
+        
+        .caption {
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
         }
-        .thumbnails{ display:flex; gap:10px; padding:16px; align-items:center; overflow-x:auto; background:#fbfcfd }
-        .thumb{ flex:0 0 auto; width:110px; height:70px; border-radius:8px; overflow:hidden; cursor:pointer; border:3px solid transparent }
-        .thumb img{ width:100%; height:100%; object-fit:cover }
-        .thumb.active{ border-color:var(--secondary) }
-        .controls{ display:flex; justify-content:space-between; align-items:center; padding:12px 16px }
-        .btn{ background:var(--secondary); color:white; border:none; padding:10px 14px; border-radius:6px; cursor:pointer; font-weight:600 }
-        .meta{ color:var(--gray); font-size:0.95rem }
-
-        @media (max-width:600px){ .thumb{ width:90px; height:60px } .caption{ left:10px; right:10px } }
+        
+        .image-counter {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+        
+        .thumbnails {
+            display: flex;
+            gap: 12px;
+            padding: 20px;
+            align-items: center;
+            overflow-x: auto;
+            background: var(--gray-light);
+            scrollbar-width: thin;
+            scrollbar-color: var(--secondary) var(--gray-light);
+        }
+        
+        .thumbnails::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .thumbnails::-webkit-scrollbar-track {
+            background: var(--gray-light);
+            border-radius: 4px;
+        }
+        
+        .thumbnails::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 4px;
+        }
+        
+        .thumb {
+            flex: 0 0 auto;
+            width: 120px;
+            height: 80px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .thumb:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .thumb:hover img {
+            transform: scale(1.1);
+        }
+        
+        .thumb.active {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 2px var(--secondary);
+        }
+        
+        .thumb-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            padding: 4px 6px;
+            font-size: 0.7rem;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .thumb:hover .thumb-overlay {
+            opacity: 1;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            background: white;
+            border-top: 1px solid var(--gray-light);
+        }
+        
+        .btn {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn:hover {
+            background: var(--secondary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn-accent {
+            background: var(--accent);
+        }
+        
+        .btn-accent:hover {
+            background: #c0392b;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .meta {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .progress-container {
+            flex: 1;
+            height: 6px;
+            background: var(--gray-light);
+            border-radius: 3px;
+            margin: 0 20px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: var(--secondary);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .fullscreen-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+        
+        .fullscreen-btn:hover {
+            background: rgba(0,0,0,0.9);
+            transform: scale(1.1);
+        }
+        
+        .carousel.fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            border-radius: 0;
+            margin: 0;
+        }
+        
+        .carousel.fullscreen .main-slide {
+            padding-top: 70vh;
+        }
+        
+        .carousel.fullscreen .thumbnails {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.8);
+            padding: 15px;
+        }
+        
+        .carousel.fullscreen .controls {
+            position: absolute;
+            bottom: 120px;
+            left: 0;
+            right: 0;
+            background: transparent;
+            border: none;
+        }
+        
+        .carousel.fullscreen .btn {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .carousel.fullscreen .btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .carousel.fullscreen .progress-container {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .carousel.fullscreen .close-fullscreen {
+            display: block;
+        }
+        
+        .close-fullscreen {
+            display: none;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 1001;
+            backdrop-filter: blur(5px);
+        }
+        
+        .close-fullscreen:hover {
+            background: rgba(0,0,0,0.9);
+            transform: scale(1.1);
+        }
+        
+        .zoom-controls {
+            position: absolute;
+            bottom: 80px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .zoom-btn {
+            background: rgba(0,0,0,0.7);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+        
+        .zoom-btn:hover {
+            background: rgba(0,0,0,0.9);
+            transform: scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                margin: 20px auto;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .thumb {
+                width: 100px;
+                height: 70px;
+            }
+            
+            .controls {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .progress-container {
+                width: 100%;
+                margin: 0;
+            }
+            
+            .carousel.fullscreen .main-slide {
+                padding-top: 60vh;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .thumb {
+                width: 80px;
+                height: 60px;
+            }
+            
+            .caption {
+                left: 10px;
+                bottom: 10px;
+                right: 10px;
+                font-size: 0.9rem;
+                padding: 8px 12px;
+            }
+            
+            .btn {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="section-title">
             <h2>Lab Photo Stream</h2>
-            <p class="meta">Auto-playing gallery of photos captured inside the lab. Click a thumbnail to jump to an image.</p>
+            <p class="meta">Interactive gallery showcasing our lab activities. Navigate using controls or click thumbnails. Images auto-advance every 5 seconds.</p>
         </div>
 
         <div class="carousel" id="carousel">
             <div class="main-slide" id="mainSlide">
                 <img src="Images/Gallery/Image1.jpg" alt="Lab photo 1" id="mainImage">
                 <div class="caption" id="mainCaption">Lab photo 1 — Prototype testing</div>
+                <div class="image-counter" id="imageCounter">1 / 13</div>
+                
+                <button class="fullscreen-btn" id="fullscreenBtn" title="Fullscreen">
+                    <i class="fas fa-expand"></i>
+                </button>
+                
+                <div class="zoom-controls">
+                    <button class="zoom-btn" id="zoomInBtn" title="Zoom In">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                    <button class="zoom-btn" id="zoomOutBtn" title="Zoom Out">
+                        <i class="fas fa-search-minus"></i>
+                    </button>
+                    <button class="zoom-btn" id="resetZoomBtn" title="Reset Zoom">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                </div>
             </div>
+            
+            <button class="close-fullscreen" id="closeFullscreen">
+                <i class="fas fa-times"></i>
+            </button>
+            
             <div class="controls">
                 <div>
-                    <button class="btn" id="prevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
-                    <button class="btn" id="nextBtn">Next <i class="fas fa-chevron-right"></i></button>
+                    <button class="btn" id="prevBtn">
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="btn" id="nextBtn">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
+                
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                
                 <div>
-                    <button class="btn" id="playPauseBtn">Pause</button>
+                    <button class="btn btn-accent" id="playPauseBtn">
+                        <i class="fas fa-pause"></i> Pause
+                    </button>
+                    <button class="btn btn-outline" id="shuffleBtn" title="Shuffle">
+                        <i class="fas fa-random"></i>
+                    </button>
                 </div>
             </div>
+            
             <div class="thumbnails" id="thumbnails">
-                <div class="thumb active" data-src="Images/Gallery/Image1.jpg" data-caption="Lab photo 1 — Pooja"><img src="Images/Gallery/Image1.jpg" alt="thumb1"></div>
-                <div class="thumb" data-src="Images/Gallery/Image2.jpg" data-caption="Lab photo 2 — Pooja"><img src="Images/Gallery/Image2.jpg" alt="thumb2"></div>
-                <div class="thumb" data-src="Images/Gallery/Image5.jpg" data-caption="Lab photo 5 — Workshop"><img src="Images/Gallery/Image5.jpg" alt="thumb5"></div>
-                <div class="thumb" data-src="Images/Gallery/image6.jpg" data-caption="Lab photo 6 — Workshop"><img src="Images/Gallery/image6.jpg" alt="thumb6"></div>
-                <div class="thumb" data-src="Images/Gallery/image7.jpg" data-caption="Lab photo 7 — Workshop"><img src="Images/Gallery/image7.jpg" alt="thumb7"></div>
-                <div class="thumb" data-src="Images/Gallery/Image8.jpg" data-caption="Lab photo 8 — Workshop"><img src="Images/Gallery/Image8.jpg" alt="thumb8"></div>
-                <div class="thumb" data-src="Images/Gallery/Image9.jpg" data-caption="Lab photo 9 — Workshop"><img src="Images/Gallery/Image9.jpg" alt="thumb9"></div>
-                <div class="thumb" data-src="Images/Gallery/Image3.jpg" data-caption="Lab photo 3 — Workshop"><img src="Images/Gallery/Image3.jpg" alt="thumb3"></div>
-                <div class="thumb" data-src="Images/Gallery/Image4.jpg" data-caption="Lab photo 4 — Workshop"><img src="Images/Gallery/Image4.jpg" alt="thumb4"></div>
-                <div class="thumb" data-src="Images/Gallery/Image10.jpg" data-caption="Lab photo 10 — Workshop"><img src="Images/Gallery/Image10.jpg" alt="thumb10"></div>
-                <div class="thumb" data-src="Images/Gallery/Image11.jpg" data-caption="Lab photo 11 — Internship June-2025"><img src="Images/Gallery/Image11.jpg" alt="thumb11"></div>
-                <div class="thumb" data-src="Images/Gallery/Image12.jpg" data-caption="Lab photo 12 — Fun"><img src="Images/Gallery/Image12.jpg" alt="thumb12"></div>
-                <div class="thumb" data-src="Images/Gallery/image13.jpg" data-caption="Lab photo 13 — PCB Master"><img src="Images/Gallery/image13.jpg" alt="thumb13"></div>
+                <!-- Thumbnails will be populated by JavaScript -->
             </div>
         </div>
 
-        <p style="text-align:center;margin-top:18px"><a href="index.html" class="btn" style="text-decoration:none">Back</a></p>
+        <p style="text-align:center; margin-top:30px">
+            <a href="index.html" class="btn btn-outline" style="text-decoration:none">
+                <i class="fas fa-arrow-left"></i> Back to Main Site
+            </a>
+        </p>
     </div>
 
     <script>
         (function(){
-            const images = Array.from(document.querySelectorAll('.thumb'));
+            // Image data
+            const images = [
+                { src: "Images/Gallery/Image1.jpg", caption: "Lab photo 1 — Pooja" },
+                { src: "Images/Gallery/Image2.jpg", caption: "Lab photo 2 — Pooja" },
+                { src: "Images/Gallery/Image5.jpg", caption: "Lab photo 5 — Workshop" },
+                { src: "Images/Gallery/image6.jpg", caption: "Lab photo 6 — Workshop" },
+                { src: "Images/Gallery/image7.jpg", caption: "Lab photo 7 — Workshop" },
+                { src: "Images/Gallery/Image8.jpg", caption: "Lab photo 8 — Workshop" },
+                { src: "Images/Gallery/Image9.jpg", caption: "Lab photo 9 — Workshop" },
+                { src: "Images/Gallery/Image3.jpg", caption: "Lab photo 3 — Workshop" },
+                { src: "Images/Gallery/Image4.jpg", caption: "Lab photo 4 — Workshop" },
+                { src: "Images/Gallery/Image10.jpg", caption: "Lab photo 10 — Workshop" },
+                { src: "Images/Gallery/Image11.jpg", caption: "Lab photo 11 — Internship June-2025" },
+                { src: "Images/Gallery/Image12.jpg", caption: "Lab photo 12 — Fun" },
+                { src: "Images/Gallery/image13.jpg", caption: "Lab photo 13 — PCB Master" }
+            ];
+            
+            // DOM elements
             const mainImage = document.getElementById('mainImage');
             const mainCaption = document.getElementById('mainCaption');
+            const imageCounter = document.getElementById('imageCounter');
+            const thumbnailsContainer = document.getElementById('thumbnails');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
             const playPauseBtn = document.getElementById('playPauseBtn');
-            let current = 0;
-            let playing = true;
+            const shuffleBtn = document.getElementById('shuffleBtn');
+            const progressBar = document.getElementById('progressBar');
+            const fullscreenBtn = document.getElementById('fullscreenBtn');
+            const closeFullscreenBtn = document.getElementById('closeFullscreen');
+            const zoomInBtn = document.getElementById('zoomInBtn');
+            const zoomOutBtn = document.getElementById('zoomOutBtn');
+            const resetZoomBtn = document.getElementById('resetZoomBtn');
+            const carousel = document.getElementById('carousel');
+            
+            // State variables
+            let currentIndex = 0;
+            let isPlaying = true;
             let interval = null;
+            let progressInterval = null;
+            let isFullscreen = false;
+            let zoomLevel = 1;
+            const autoPlayDelay = 5000; // 5 seconds
+            
+            // Initialize thumbnails
+            function initThumbnails() {
+                thumbnailsContainer.innerHTML = '';
+                
+                images.forEach((image, index) => {
+                    const thumb = document.createElement('div');
+                    thumb.className = 'thumb';
+                    if (index === 0) thumb.classList.add('active');
+                    
+                    thumb.innerHTML = `
+                        <img src="${image.src}" alt="${image.caption}">
+                        <div class="thumb-overlay">${index + 1}</div>
+                    `;
+                    
+                    thumb.dataset.index = index;
+                    thumb.addEventListener('click', () => {
+                        goToImage(index);
+                        pause();
+                    });
 
-            function goTo(index){
-                if(index < 0) index = images.length -1;
-                if(index >= images.length) index = 0;
-                current = index;
-                const thumb = images[current];
-                const src = thumb.dataset.src;
-                const caption = thumb.dataset.caption;
+                    // Prevent right-click on thumbnail images
+                    const thumbImg = thumb.querySelector('img');
+                    thumbImg.addEventListener('contextmenu', (e) => e.preventDefault());
+                    thumbImg.ondragstart = () => false;
+                    
+                    thumbnailsContainer.appendChild(thumb);
+                });
 
-                // Fade out current image and caption
-                mainImage.classList.add('fade-out');
-                mainCaption.style.opacity = '0.5';
-
-                // After half the transition duration, swap and fade in
-                setTimeout(() => {
-                    mainImage.src = src;
-                    mainCaption.textContent = caption;
-                    mainImage.classList.remove('fade-out');
-                    mainCaption.style.opacity = '1';
-                }, 300); // Matches half of 0.6s transition
-
-                images.forEach(t => t.classList.remove('active'));
-                thumb.classList.add('active');
-                // Ensure thumbnail visible
-                thumb.scrollIntoView({behavior:'smooth', inline:'center'});
+                // Prevent right-click on main image
+                mainImage.addEventListener('contextmenu', (e) => e.preventDefault());
+                mainImage.ondragstart = () => false;
             }
-
-            function next(){ goTo(current+1); }
-            function prev(){ goTo(current-1); }
-
-            images.forEach((thumb, idx) => {
-                thumb.addEventListener('click', ()=>{
-                    goTo(idx);
+            
+            // Go to specific image
+            function goToImage(index) {
+                if (index < 0) index = images.length - 1;
+                if (index >= images.length) index = 0;
+                
+                currentIndex = index;
+                const image = images[currentIndex];
+                
+                // Fade out current image
+                mainImage.classList.add('fade-out');
+                
+                // Update after fade transition
+                setTimeout(() => {
+                    mainImage.src = image.src;
+                    mainImage.alt = image.caption;
+                    mainCaption.textContent = image.caption;
+                    imageCounter.textContent = `${currentIndex + 1} / ${images.length}`;
+                    mainImage.classList.remove('fade-out');
+                    
+                    // Update active thumbnail
+                    document.querySelectorAll('.thumb').forEach((thumb, i) => {
+                        thumb.classList.toggle('active', i === currentIndex);
+                    });
+                    
+                    // Ensure active thumbnail is visible
+                    const activeThumb = document.querySelector('.thumb.active');
+                    if (activeThumb) {
+                        activeThumb.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'nearest',
+                            inline: 'center'
+                        });
+                    }
+                    
+                    // Reset progress bar
+                    resetProgressBar();
+                }, 300);
+            }
+            
+            // Next image
+            function nextImage() {
+                goToImage(currentIndex + 1);
+            }
+            
+            // Previous image
+            function prevImage() {
+                goToImage(currentIndex - 1);
+            }
+            
+            // Play slideshow
+            function play() {
+                isPlaying = true;
+                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i> Pause';
+                interval = setInterval(nextImage, autoPlayDelay);
+                startProgressBar();
+            }
+            
+            // Pause slideshow
+            function pause() {
+                isPlaying = false;
+                playPauseBtn.innerHTML = '<i class="fas fa-play"></i> Play';
+                clearInterval(interval);
+                clearInterval(progressInterval);
+            }
+            
+            // Toggle play/pause
+            function togglePlayPause() {
+                if (isPlaying) {
+                    pause();
+                } else {
+                    play();
+                }
+            }
+            
+            // Shuffle images
+            function shuffleImages() {
+                // Fisher-Yates shuffle algorithm
+                for (let i = images.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [images[i], images[j]] = [images[j], images[i]];
+                }
+                
+                // Reinitialize thumbnails and go to first image
+                initThumbnails();
+                goToImage(0);
+                
+                // Show shuffle feedback
+                shuffleBtn.style.backgroundColor = 'var(--accent)';
+                setTimeout(() => {
+                    shuffleBtn.style.backgroundColor = '';
+                }, 500);
+            }
+            
+            // Progress bar functions
+            function startProgressBar() {
+                progressBar.style.width = '0%';
+                let progress = 0;
+                const increment = 100 / (autoPlayDelay / 100);
+                
+                progressInterval = setInterval(() => {
+                    progress += increment;
+                    progressBar.style.width = `${progress}%`;
+                    
+                    if (progress >= 100) {
+                        clearInterval(progressInterval);
+                    }
+                }, 100);
+            }
+            
+            function resetProgressBar() {
+                clearInterval(progressInterval);
+                if (isPlaying) {
+                    startProgressBar();
+                } else {
+                    progressBar.style.width = '0%';
+                }
+            }
+            
+            // Fullscreen functions
+            function enterFullscreen() {
+                carousel.classList.add('fullscreen');
+                isFullscreen = true;
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function exitFullscreen() {
+                carousel.classList.remove('fullscreen');
+                isFullscreen = false;
+                document.body.style.overflow = 'auto';
+            }
+            
+            function toggleFullscreen() {
+                if (isFullscreen) {
+                    exitFullscreen();
+                } else {
+                    enterFullscreen();
+                }
+            }
+            
+            // Zoom functions
+            function zoomIn() {
+                if (zoomLevel < 3) {
+                    zoomLevel += 0.25;
+                    applyZoom();
+                }
+            }
+            
+            function zoomOut() {
+                if (zoomLevel > 0.5) {
+                    zoomLevel -= 0.25;
+                    applyZoom();
+                }
+            }
+            
+            function resetZoom() {
+                zoomLevel = 1;
+                applyZoom();
+            }
+            
+            function applyZoom() {
+                mainImage.style.transform = `scale(${zoomLevel})`;
+                mainImage.style.transformOrigin = 'center center';
+            }
+            
+            // Keyboard navigation
+            function handleKeydown(e) {
+                if (e.key === 'ArrowLeft') {
+                    prevImage();
+                    pause();
+                } else if (e.key === 'ArrowRight') {
+                    nextImage();
+                    pause();
+                } else if (e.key === ' ') {
+                    e.preventDefault();
+                    togglePlayPause();
+                } else if (e.key === 'Escape' && isFullscreen) {
+                    exitFullscreen();
+                } else if (e.key === 'f' || e.key === 'F') {
+                    toggleFullscreen();
+                }
+            }
+            
+            // Initialize event listeners
+            function initEventListeners() {
+                prevBtn.addEventListener('click', () => {
+                    prevImage();
                     pause();
                 });
-            });
-
-            nextBtn.addEventListener('click', ()=>{ next(); pause(); });
-            prevBtn.addEventListener('click', ()=>{ prev(); pause(); });
-
-            function play(){
-                playing = true;
-                playPauseBtn.textContent = 'Pause';
-                interval = setInterval(next, 3000);
+                
+                nextBtn.addEventListener('click', () => {
+                    nextImage();
+                    pause();
+                });
+                
+                playPauseBtn.addEventListener('click', togglePlayPause);
+                
+                shuffleBtn.addEventListener('click', shuffleImages);
+                
+                fullscreenBtn.addEventListener('click', toggleFullscreen);
+                
+                closeFullscreenBtn.addEventListener('click', exitFullscreen);
+                
+                zoomInBtn.addEventListener('click', zoomIn);
+                
+                zoomOutBtn.addEventListener('click', zoomOut);
+                
+                resetZoomBtn.addEventListener('click', resetZoom);
+                
+                document.addEventListener('keydown', handleKeydown);
+                
+                // Swipe support for touch devices
+                let touchStartX = 0;
+                let touchEndX = 0;
+                
+                carousel.addEventListener('touchstart', e => {
+                    touchStartX = e.changedTouches[0].screenX;
+                });
+                
+                carousel.addEventListener('touchend', e => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                });
+                
+                function handleSwipe() {
+                    const swipeThreshold = 50;
+                    
+                    if (touchEndX < touchStartX - swipeThreshold) {
+                        // Swipe left - next image
+                        nextImage();
+                        pause();
+                    }
+                    
+                    if (touchEndX > touchStartX + swipeThreshold) {
+                        // Swipe right - previous image
+                        prevImage();
+                        pause();
+                    }
+                }
             }
-            function pause(){
-                playing = false;
-                playPauseBtn.textContent = 'Play';
-                clearInterval(interval);
+            
+            // Initialize the gallery
+            function init() {
+                initThumbnails();
+                initEventListeners();
+                goToImage(0);
+                play();
             }
-
-            playPauseBtn.addEventListener('click', ()=>{
-                if(playing) pause(); else play();
-            });
-
-            // init
-            goTo(0);
-            play();
+            
+            // Start the gallery
+            init();
         })();
     </script>
 </body>
