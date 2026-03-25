@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COE-IOT Research Laboratory</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
         /* ===== CSS VARIABLES ===== */
         :root {
@@ -28,8 +31,8 @@
             --shadow-dark: rgba(0, 0, 0, 0.15);
             
             /* Typography */
-            --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            --font-heading: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-primary: 'Open Sans', sans-serif;
+            --font-heading: 'Poppins', sans-serif;
             
             /* Spacing */
             --section-padding: 5rem 0;
@@ -210,6 +213,7 @@
             background-color: var(--white);
             box-shadow: var(--shadow-md);
             position: fixed;
+            position: sticky;
             width: 100%;
             top: 0;
             z-index: 1000;
@@ -1255,24 +1259,8 @@
       <p>Meet the dean guiding our research and innovation.</p>
     </div>
 
-    <div class="card-grid">
-      <div class="card text-center" style="border: 2px solid #007bff; box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);">
-        <div class="card-body">
-          <h3 class="card-title" style="font-weight: 700; color: #007bff;">
-            Dean, R&amp;D &amp; Research Park
-          </h3>
-          <p class="text-secondary" style="margin-top: 0.5rem; font-size: 1.05rem; font-weight: 600;">
-            Prof. Dr. P. Chandra Kumar
-          </p>
-          <p style="font-weight: 500;">
-            Prof. Dr. P. Chandra Kumar provides strategic leadership for Vel Tech's Office of Research &amp; Development and the Research Park, 
-            fostering a dynamic ecosystem of innovation, industry collaboration, and interdisciplinary research excellence.
-          </p>
-          <p style="font-size: 0.95rem;">
-            As Dean, he spearheads major research initiatives, leads industry partnerships, and supervises technology incubation activities, empowering faculty and scholars to realize impactful innovations and drive transformative change.
-          </p>
-        </div>
-      </div>
+    <div class="card-grid" id="leadership-list">
+      <!-- Leadership will be loaded dynamically -->
     </div>
   </div>
 </section>
@@ -1283,67 +1271,8 @@
                 <h2>Lab Gallery</h2>
                 <p>Explore our state-of-the-art IoT research facilities and equipment.</p>
             </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="Images/labGallery/ResearchArea.png" alt="Main Research Area">
-                    <div class="gallery-item-overlay">
-                        <h3>Main Research Area</h3>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="Images/labGallery/Labspace.jpg" alt="Labspace">
-                    <div class="gallery-item-overlay">
-                        <h3>Lab Space</h3>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="Images/labGallery/Equipment.jpg" alt="Equipment">
-                    <div class="gallery-item-overlay">
-                        <h3>Equipment</h3>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="Images/labGallery/Soldering.jpg" alt="Soldering">
-                    <div class="gallery-item-overlay">
-                        <h3>Soldering Station</h3>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Industry Meeting">
-                    <div class="gallery-item-overlay">
-                        <h3>Assembling</h3>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="Images/labGallery/Working.jpg" alt="Working">
-                    <div class="gallery-item-overlay">
-                        <h3>Working & Performing Tasks</h3>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="Images/labGallery/Pcbdevelop.jpg" alt="pcb-develop">
-                    <div class="gallery-item-overlay">
-                        <h3>Developing PCB</h3>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="Images/labGallery/prototype.jpg" alt="Testing">
-                    <div class="gallery-item-overlay">
-                        <h3>Testing Prototype</h3>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="Images/labGallery/PcbMaster.jpg" alt="PcbMaster">
-                    <div class="gallery-item-overlay">
-                        <h3>PCB-Designer</h3>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="Images/labGallery/Discussion.jpg" alt="Discussion">
-                    <div class="gallery-item-overlay">
-                        <h3>Discussion</h3>
-                    </div>
-                </div>
+            <div class="gallery-grid" id="gallery-list">
+                <!-- Gallery items will be loaded dynamically -->
             </div>
         </div>
     </section>
@@ -1355,46 +1284,8 @@
                 <h2>Conducted Workshops</h2>
                 <p>We regularly organize workshops to share knowledge and foster collaboration in IoT technologies.</p>
             </div>
-            <div class="workshops-container">
-                <div class="workshop-card">
-                    <div class="workshop-image">
-                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="IoT Fundamentals">
-                    </div>
-                    <div class="workshop-content">
-                        <h3>IoT Fundamentals & Applications</h3>
-                        <div class="workshop-meta">
-                            <span><i class="far fa-calendar"></i> March 15, 2025</span>
-                            <span><i class="fas fa-users"></i> 45 Participants</span>
-                        </div>
-                        <p>A comprehensive workshop exploring IoT architecture, sensors, connectivity, and real-world applications across industries.</p>
-                    </div>
-                </div>
-                <div class="workshop-card">
-                    <div class="workshop-image">
-                        <img src="Images/Workshops/PcBInvitation.jpg" alt="PcBInvitation">
-                    </div>
-                    <div class="workshop-content">
-                        <h3>PCB Designing</h3>
-                        <div class="workshop-meta">
-                            <span><i class="far fa-calendar"></i> August 08, 2025</span>
-                            <span><i class="fas fa-users"></i> 30 Participants</span>
-                        </div>
-                        <p>Hands-on workshop on kiCad tool and PCB-Designing.</p>
-                    </div>
-                </div>
-                <div class="workshop-card">
-                    <div class="workshop-image">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="IoT Security">
-                    </div>
-                    <div class="workshop-content">
-                        <h3>IoT Security & Privacy</h3>
-                        <div class="workshop-meta">
-                            <span><i class="far fa-calendar"></i> September 8, 2023</span>
-                            <span><i class="fas fa-users"></i> 28 Participants</span>
-                        </div>
-                        <p>Exploring security challenges in IoT ecosystems and implementing robust security measures for connected devices.</p>
-                    </div>
-                </div>
+            <div class="workshops-container" id="workshops-list">
+                <!-- Workshops will be loaded dynamically -->
             </div>
         </div>
     </section>
@@ -1406,151 +1297,8 @@
                 <h2>Completed Projects</h2>
                 <p>Discover some of our impactful IoT projects completed in collaboration with industry partners.</p>
             </div>
-            <div class="workshops-container">
-                <div class="workshop-card">
-                    <div class="workshop-image">
-                        <img src="Images/projects/IoT-Trainerkit.jpg" alt="IoT-Trainerkit">
-                    </div>
-                    <div class="workshop-content">
-                        <h3>IoT-Trainer Kit</h3>
-                        <div class="workshop-meta">
-                            <span><i class="far fa-calendar"></i> 2025</span>
-                            <span><i class="fas fa-industry"></i> Innovate+ Solutions</span>
-                        </div>
-                        <p>Developed an IoT-TrainerKit for the Industry 4.0 .This have integrated with more analog,digital and indrustrial grade Sensors.</p>
-                    </div>
-                </div>
-                <div class="workshop-card">
-                    <div class="workshop-image">
-                        <img src="Images/projects/Datalogger.jpg" alt="Datalogger">
-                    </div>
-                    <div class="workshop-content">
-                        <h3>Datalogger</h3>
-                        <div class="workshop-meta">
-                            <span><i class="far fa-calendar"></i> 2025</span>
-                            <span><i class="fas fa-industry"></i> Innovate+ Solutions</span>
-                        </div>
-                        <p>This is RS-485 based Datalogger that can be store data in the on-board sdcard and also it will send the data to the Cloud in the realtime.</p>
-                    </div>
-                </div>
-                <div class="workshop-card">
-                    <div class="workshop-image">
-                        <img src="Images/projects/App.jpg" alt="App Development">
-                    </div>
-                    <div class="workshop-content">
-                        <h3>Smart Control System</h3>
-                        <div class="workshop-meta">
-                            <span><i class="far fa-calendar"></i> 2025</span>
-                            <span><i class="fas fa-industry"></i> SmartTech Systems</span>
-                        </div>
-                        <p>Implemented a Smart Control System that enables remote management of city lighting and infrastructure. A dedicated app was developed to work exclusively with our custom-built IoT devices, ensuring enhanced security and seamless integration for smart city operations.</p>
-                        <p>To Know about the APP -- <a href="https://krishna99-tech.github.io/SmartHome.github.io/">Smart Home Control</a></p>
-                    </div>
-                </div>
-                <div class="workshop-card">
-                    <div class="workshop-image">
-                        <img src="Images/projects/Roomoccupancy.jpg" alt="Room Occupancy Monitor">
-                    </div>
-                    <div class="workshop-content">
-                        <h3>Room Occupancy Monitor</h3>
-                        <div class="workshop-meta">
-                            <span><i class="far fa-calendar"></i> 2025</span>
-                            <span><i class="fas fa-industry"></i> Innovate+ Solutions</span>
-                        </div>
-                        <p>Designed a Room Occupancy Monitor,This is particularly developed for the Placement Cell.During the Placements this device will help monitor the room status which the placement going on,The status will updated on realtime in the dashboard .Those who are waiting for the interview can see and notify.</p>
-                    </div>
-                </div>
-                <div class="workshop-card">
-                    <div class="workshop-image">
-                        <img src="Images/projects/ESP32-PLC.jpg" alt="Esp32-PLC">
-                    </div>
-                    <div class="workshop-content">
-                        <h3>Esp32-PLC</h3>
-                        <div class="workshop-meta">
-                            <span><i class="far fa-calendar"></i> 2025</span>
-                            <span><i class="fas fa-industry"></i> Innovate+ Solutions</span>
-                        </div>
-                        <p>This project is mainly based on replacing a conventional PLC system with ESP32-based microcontroller. It serves as a low-cost alternative to traditional PLCs for industrial automation, IoT, home automation and educational purposes.</p>
-                    </div>
-                </div>
-                <div class="workshop-card">
-                    <div class="workshop-image">
-                        <img src="Images/projects/Buck.jpg" alt="Buck">
-                    </div>
-                    <div class="workshop-content">
-                        <h3>Buck Converter</h3>
-                        <div class="workshop-meta">
-                            <span><i class="far fa-calendar"></i> 2025</span>
-                            <span><i class="fas fa-industry"></i> Innovate+ Solutions</span>
-                        </div>
-                        <p>This is a Buck converter which  is a DC-DC step-down voltage regulator that maintains a constant, stable output voltage even when the input voltage varies between 7V to 32V DC. It efficiently converts higher DC voltage to a lower level (5V–30V adjustable) and includes protection circuits to safeguard against high-voltage spikes or sudden input fluctuations, ensuring a safe and reliable output.</p>
-                    </div>
-                </div>
-                <div class="workshop-card">
-                    <div class="workshop-image">
-                        <img src="Images/projects/Thermostat.jpg" alt="Thermostat">
-                    </div>
-                    <div class="workshop-content">
-                        <h3>Thermostat</h3>
-                        <div class="workshop-meta">
-                            <span><i class="far fa-calendar"></i> 2025</span>
-                            <span><i class="fas fa-industry"></i> Innovate+ Solutions</span>
-                        </div>
-                            <p>The *Thermo Smart* system is an intelligent temperature control solution designed for *Aquaculture ponds and PCB fabrication section, capable of automatically and manually managing **heaters and coolers. It can be operated both **locally and through an online dashboard, ensuring precise thermal regulation for optimal fish seed cultivation and the room temperature.</p>
-                    </div>
-                </div>
-                <div class="workshop-card">
-                    <div class="workshop-image">
-                        <img src="Images/projects/Lorawan.jpg" alt="Lorawan">
-                    </div>
-                    <div class="workshop-content">
-                        <h3>Lorawan</h3>
-                        <div class="workshop-meta">
-                            <span><i class="far fa-calendar"></i> 2025</span>
-                            <span><i class="fas fa-industry"></i> Innovate+ Solutions</span>
-                        </div>
-                        <p>Implemented a Lorawan device that based on industrial grade protocols and Modules for industry 4.0</p>
-                    </div>
-                </div>
-                <div class="workshop-card">
-                    <div class="workshop-image">
-                        <img src="Images/projects/Esp32-s3.jpg" alt="Esp32-s3">
-                    </div>
-                    <div class="workshop-content">
-                        <h3>Esp32-S3</h3>
-                        <div class="workshop-meta">
-                            <span><i class="far fa-calendar"></i> 2025</span>
-                            <span><i class="fas fa-industry"></i> Innovate+ Solutions</span>
-                        </div>
-                        <p>Developed an Costomized Esp32-s3 module for learning and Exploring.</p>
-                    </div>
-                </div>
-                <div class="workshop-card">
-                    <div class="workshop-image">
-                        <img src="Images/projects/optocoupler.jpg" alt="optocoupler">
-                    </div>
-                    <div class="workshop-content">
-                        <h3>OptoCoupler</h3>
-                        <div class="workshop-meta">
-                            <span><i class="far fa-calendar"></i> 2025</span>
-                            <span><i class="fas fa-industry"></i> Innovate+ Solutions</span>
-                        </div>
-                        <p>Developed an 24vto 3.3 & 3.3v to 24v OptoCoupler.</p>
-                    </div>
-                </div>
-                <div class="workshop-card">
-                    <div class="workshop-image">
-                        <img src="Images/projects/CH340C-Programmer.jpg" alt="Programmer">
-                    </div>
-                    <div class="workshop-content">
-                        <h3>CH340C-Programmer</h3>
-                        <div class="workshop-meta">
-                            <span><i class="far fa-calendar"></i> 2024</span>
-                            <span><i class="fas fa-industry"></i> Innovate+ Solutions</span>
-                        </div>
-                        <p>Developed an Customized Programmer for the ESP based chips.</p>
-                    </div>
-                </div>
+            <div class="workshops-container" id="projects-list">
+                <!-- Projects will be loaded dynamically -->
             </div>
         </div>
     </section>
@@ -1562,63 +1310,8 @@
                 <h2>Latest PCBs</h2>
                 <p>Explore our most recent PCB designs used in research and prototypes. Click any card for details.</p>
             </div>
-            <div class="pcbs-container">
-                <div class="pcb-card">
-                    <div class="pcb-image">
-                        <img src="Images/Pcbs/esp32-s3.jpg" alt="PCB - Esp32-s3">
-                    </div>
-                    <div class="pcb-content">
-                        <div>
-                            <div class="pcb-title">ESP32-S3 Development Board</div>
-                        </div>
-                        <div class="pcb-meta">
-                            <span class="pcb-badge">Prototype</span>
-                            <span class="pcb-year">2025</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="pcb-card">
-                    <div class="pcb-image">
-                        <img src="Images/Pcbs/Trainerkit.jpg" alt="PCB - Trainerkit">
-                    </div>
-                    <div class="pcb-content">
-                        <div>
-                            <div class="pcb-title">Trainerkit</div>
-                        </div>
-                        <div class="pcb-meta">
-                            <span class="pcb-badge">Production</span>
-                            <span class="pcb-year">2025</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="pcb-card">
-                    <div class="pcb-image">
-                        <img src="Images/Pcbs/programmer.jpg" alt="PCB - Programmer">
-                    </div>
-                    <div class="pcb-content">
-                        <div>
-                            <div class="pcb-title">CH340C-Programmer</div>
-                        </div>
-                        <div class="pcb-meta">
-                            <span class="pcb-badge">Prototype</span>
-                            <span class="pcb-year">2025</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="pcb-card">
-                    <div class="pcb-image">
-                        <img src="Images/Pcbs/ESP32-PLC.jpg" alt="PCB - esp32-s3">
-                    </div>
-                    <div class="pcb-content">
-                        <div>
-                            <div class="pcb-title">Esp32-PLC</div>
-                            <div class="pcb-meta">
-                                <span class="pcb-badge">Prototype</span>
-                                <span class="pcb-year">2025</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="pcbs-container" id="pcbs-list">
+                <!-- PCBs will be loaded dynamically -->
             </div>
         </div>
     </section>
@@ -1667,115 +1360,8 @@
                             <th>Year Joined</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Dr.Arun C.A</td>
-                            <td><span class="member-role">Lead Researcher </span></td>
-                            <td>Professor</td>
-                            <td class="member-year">2023</td>
-                        </tr>
-                        <tr>
-                            <td>S.Siva Sankari</td>
-                            <td><span class="member-role">Member</span></td>
-                            <td>E.C.E/Research Scholar</td>
-                            <td class="member-year">2025</td>
-                        </tr>
-                        <tr>
-                            <td>Saddam Hussain</td>
-                            <td><span class="member-role">Member</span></td>
-                            <td>E.C.E /4rd Year Student</td>
-                            <td class="member-year">2024</td>
-                        </tr>
-                        <tr>
-                            <td>V. Venkata Krishna</td>
-                            <td><span class="member-role">Member</span></td>
-                            <td>E.C.E /3rd Year Student</td>
-                            <td class="member-year">2024</td>
-                        </tr>
-                        <tr>
-                            <td>M.Aditya</td>
-                            <td><span class="member-role">Member</span></td>
-                            <td>E.C.E /3rd Year Student</td>
-                            <td class="member-year">2024</td>
-                        </tr>
-                        <tr>
-                            <td>V.Janjitha</td>
-                            <td><span class="member-role">Member</span></td>
-                            <td>E.C.E /3rd Year Student</td>
-                            <td class="member-year">2024</td>
-                        </tr>
-                        <tr>
-                            <td>K.John</td>
-                            <td><span class="member-role">Member</span></td>
-                            <td>E.C.E /2rd Year Student</td>
-                            <td class="member-year">2024</td>
-                        </tr>
-                         <tr>
-                            <td>K.Harsha Sai</td>
-                            <td><span class="member-role">Member</span></td>
-                            <td>E.C.E /2rd Year Student</td>
-                            <td class="member-year">2024</td>
-                        </tr>
-                        <tr>
-                            <td>T.SeshaRaghuRam</td>
-                            <td><span class="member-role">Member</span></td>
-                            <td>E.C.E /3rd Year Student</td>
-                            <td class="member-year">2025</td>
-                        </tr>
-                        <tr>
-                            <td>B.PranavKumar</td>
-                            <td><span class="member-role">Member</span></td>
-                            <td>E.C.E /3rd Year Student</td>
-                            <td class="member-year">2025</td>
-                        </tr>
-                        <tr>
-                            <td>A.Surya</td>
-                            <td><span class="member-role">Member</span></td>
-                            <td>E.E.E /4rd Year Student</td>
-                            <td class="member-year">2025</td>
-                        </tr>
-                        <tr>
-                            <td>S.Venkata Aviansh</td>
-                            <td><span class="member-role">Member</span></td>
-                            <td>E.E.E /3rd Year Student</td>
-                            <td class="member-year">2024</td>
-                        </tr>
-                        <tr>
-                            <td>S.Harish</td>
-                            <td><span class="member-role">Member</span></td>
-                            <td>E.E.E /3rd Year Student</td>
-                            <td class="member-year">2025</td>
-                        </tr>
-                        <tr>
-                            <td>A.Harini</td>
-                            <td><span class="member-role">Member</span></td>
-                            <td>E.E.E /3rd Year Student</td>
-                            <td class="member-year">2025</td>
-                        </tr>
-                        <tr>
-                            <td>Daniel Ford</td>
-                            <td><span class="member-role">Member</span></td>
-                            <td>Bio-Mech/4rd Year Student</td>
-                            <td class="member-year">2024</td>
-                        </tr>
-                        <tr>
-                            <td>B.Bhavana</td>
-                            <td><span class="member-role">Member</span></td>
-                            <td>AI&ML /3rd Year Student</td>
-                            <td class="member-year">2025</td>
-                        </tr>
-                        <tr>
-                            <td>P.Hruday Santhosh</td>
-                            <td><span class="member-role">Member</span></td>
-                            <td>AI&ML /3rd Year Student</td>
-                            <td class="member-year">2025</td>
-                        </tr>
-                        <tr>
-                            <td>U.Mounika</td>
-                            <td><span class="member-role">Member</span></td>
-                            <td>AI&ML /3rd Year Student</td>
-                            <td class="member-year">2025</td>
-                        </tr>
+                    <tbody id="members-list">
+                        <!-- Members will be loaded dynamically -->
                     </tbody>
                 </table>
             </div>
@@ -1962,6 +1548,143 @@
             alert('Thank you for your message! We will get back to you soon.');
             this.reset();
         });
+
+        // Generic function to fetch and render data
+        function loadData(url, containerId, renderFunction) {
+            fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+                
+                container.innerHTML = '';
+                
+                data.forEach(item => {
+                    const element = renderFunction(item);
+                    container.appendChild(element);
+                });
+            })
+            .catch(error => {
+                console.error(`Error loading data from ${url}:`, error);
+            });
+        }
+
+        // Renderers
+        const renderMember = (member) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${member.name}</td>
+                <td><span class="member-role">${member.role}</span></td>
+                <td>${member.profession}</td>
+                <td class="member-year">${member.year}</td>
+            `;
+            return row;
+        };
+
+        const renderWorkshop = (workshop) => {
+            const card = document.createElement('div');
+            card.className = 'workshop-card';
+            card.innerHTML = `
+                <div class="workshop-image">
+                    <img src="${workshop.image}" alt="${workshop.title}">
+                </div>
+                <div class="workshop-content">
+                    <h3>${workshop.title}</h3>
+                    <div class="workshop-meta">
+                        <span><i class="far fa-calendar"></i> ${workshop.date}</span>
+                        <span><i class="fas fa-users"></i> ${workshop.participants}</span>
+                    </div>
+                    <p>${workshop.description}</p>
+                </div>
+            `;
+            return card;
+        };
+
+        const renderPcb = (pcb) => {
+            const card = document.createElement('div');
+            card.className = 'pcb-card';
+            card.innerHTML = `
+                <div class="pcb-image">
+                    <img src="${pcb.image}" alt="${pcb.alt}">
+                </div>
+                <div class="pcb-content">
+                    <div>
+                        <div class="pcb-title">${pcb.title}</div>
+                    </div>
+                    <div class="pcb-meta">
+                        <span class="pcb-badge">${pcb.badge}</span>
+                        <span class="pcb-year">${pcb.year}</span>
+                    </div>
+                </div>
+            `;
+            return card;
+        };
+
+        const renderProject = (project) => {
+            const card = document.createElement('div');
+            card.className = 'workshop-card';
+            card.innerHTML = `
+                <div class="workshop-image">
+                    <img src="${project.image}" alt="${project.title}">
+                </div>
+                <div class="workshop-content">
+                    <h3>${project.title}</h3>
+                    <div class="workshop-meta">
+                        <span><i class="far fa-calendar"></i> ${project.year}</span>
+                        <span><i class="fas fa-industry"></i> ${project.partner}</span>
+                    </div>
+                    <p>${project.description}</p>
+                </div>
+            `;
+            return card;
+        };
+
+        const renderLeadership = (leader) => {
+            const card = document.createElement('div');
+            card.className = 'card text-center';
+            card.style.cssText = "border: 2px solid #007bff; box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);";
+            
+            card.innerHTML = `
+                <div style="padding: 20px 20px 0;">
+                    <img src="${leader.image}" alt="${leader.name}" style="width: 200px; height: 200px; object-fit: cover; border-radius: 20px; margin: 0 auto; display: block; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title" style="font-weight: 700; color: #007bff;">
+                        ${leader.role}
+                    </h3>
+                    <p class="text-secondary" style="margin-top: 0.5rem; font-size: 1.05rem; font-weight: 600;">
+                        ${leader.name}
+                    </p>
+                    <p style="font-weight: 500;">
+                        ${leader.description}
+                    </p>
+                    <p style="font-size: 0.95rem;">
+                        ${leader.sub_description}
+                    </p>
+                </div>
+            `;
+            return card;
+        };
+
+        const renderGalleryItem = (item) => {
+            const div = document.createElement('div');
+            div.className = 'gallery-item';
+            div.innerHTML = `
+                <img src="${item.src}" alt="${item.alt}">
+                <div class="gallery-item-overlay">
+                    <h3>${item.title}</h3>
+                </div>
+            `;
+            return div;
+        };
+
+        // Initial data loading
+        loadData('members.json', 'members-list', renderMember);
+        loadData('workshops.json', 'workshops-list', renderWorkshop);
+        loadData('pcbs.json', 'pcbs-list', renderPcb);
+        loadData('projects.json', 'projects-list', renderProject);
+        loadData('leadership.json', 'leadership-list', renderLeadership);
+        loadData('gallery.json', 'gallery-list', renderGalleryItem);
     </script>
 </body>
 </html>

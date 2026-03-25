@@ -1,0 +1,51 @@
+[
+  {
+    "image": "Images/Pcbs/esp32-s3.jpg",
+    "alt": "PCB - Esp32-s3",
+    "title": "ESP32-S3 Development Board",
+    "badge": "Prototype",
+    "year": "2025"
+  },
+  {
+    "image": "Images/Pcbs/Trainerkit.jpg",
+    "alt": "PCB - Trainerkit",
+    "title": "Trainerkit",
+    "badge": "Production",
+    "year": "2025"
+  },
+  {
+    "image": "Images/Pcbs/programmer.jpg",
+    "alt": "PCB - Programmer",
+    "title": "CH340C-Programmer",
+    "badge": "Prototype",
+    "year": "2025"
+  },
+  {
+    "image": "Images/Pcbs/ESP32-PLC.jpg",
+    "alt": "PCB - ESP32-PLC",
+    "title": "Esp32-PLC",
+    "badge": "Production",
+    "year": "2025"
+  },
+   {
+    "image": "Images/Pcbs/HomeAutomation.png",
+    "alt": "PCB - Home Automation",
+    "title": "Smart Home Automation",
+    "badge": "Production",
+    "year": "2025"
+  },
+   {
+    "image": "Images/Pcbs/Optocoupler.png",
+    "alt": "PCB - Optocoupler",
+    "title": "Optocoupler",
+    "badge": "Production",
+    "year": "2024"
+  },
+   {
+    "image": "Images/Pcbs/Lorasonnet.png",
+    "alt": "PCB - Lorasonnet",
+    "title": "IoT device for Industry 4.0",
+    "badge": "Production",
+    "year": "2024"
+  }
+]

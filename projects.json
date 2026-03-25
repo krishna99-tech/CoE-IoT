@@ -1,0 +1,107 @@
+[
+  {
+    "image": "Images/projects/IoT-Trainerkit.jpg",
+    "title": "IoT-Trainer Kit",
+    "year": "2025",
+    "partner": "Innovate+ Solutions",
+    "description": "Developed a comprehensive IoT Trainer Kit designed for Industry 4.0 education and prototyping. This all-in-one development platform integrates a wide array of analog and digital sensors, along with industrial-grade communication modules. It features on-board ESP32 and Raspberry Pi Pico support, making it an ideal tool for students and professionals to experiment with sensor data acquisition, cloud connectivity, and edge computing."
+  },
+    {
+    "image": "Images/projects/Energymeter.png",
+    "title": "Energy Monitoring System",
+    "year": "2025",
+    "partner": "Innovate+ Solutions",
+    "description": "Developed a robust Energy Monitoring System capable of interfacing with existing industrial energy meters via Modbus/RS-485. It automatically reads critical energy parameters such as voltage, current, power factor, and consumption, then transmits this data to a cloud dashboard in real-time. This system eliminates manual logging errors, enables predictive maintenance, and helps industries optimize their energy usage patterns."
+  },
+    {
+    "image": "Images/projects/viscocity.png",
+    "title": "Viscocity",
+    "year": "202",
+    "partner": "Innovate+ Solutions",
+    "description": "Measuring viscosity is the most complicated, important and time-consuming process to determine the state or fluidity of a liquid or gas. Viscosity is one of the important parameters in the quality control of various industries and applications such as chemical, pharmaceutical, petrochemical, food, cosmetics, ink, paint, oil, coatings, and automotive. The ability to accurately determine the fluid state and fluidity directly impacts product consistency, product optimization, and regulatory compliance."
+  },
+    {
+    "image": "Images/projects/Smarthomeautomation.png",
+    "title": "Smart Home Automation",
+    "year": "2025",
+    "partner": "Innovate+ Solutions",
+    "description": "Created a sophisticated Smart Home Automation solution that allows seamless control of home appliances through multiple interfaces. Users can interact with the system using a custom-designed DWIN touch display panel or a dedicated mobile application. Features include real-time status feedback, scheduling, and remote access, providing a convenient and energy-efficient living experience."
+  },
+  {
+    "image": "Images/projects/Datalogger.jpg",
+    "title": "Datalogger",
+    "year": "2025",
+    "partner": "Innovate+ Solutions",
+    "description": "Designed a versatile RS-485 based Data Logger built for industrial environments. It reliably acquires data from various sensors and devices, storing it locally on an SD card for redundancy while simultaneously transmitting it to the cloud for real-time monitoring. This dual-storage approach ensures data integrity even during network outages, making it suitable for critical monitoring applications."
+  },
+      {
+    "image": "Images/projects/Energymeter.png",
+    "title": "Indoor Air Quality Monitoring",
+    "year": "2025",
+    "partner": "Innovate+ Solutions",
+    "description": "Developed a multi-sensor Indoor Air Quality (IAQ) Monitoring system designed to ensure healthy living and working environments. This device precisely tracks critical environmental parameters including Temperature, Humidity, Carbon Monoxide (CO), Total Volatile Organic Compounds (TVOC), and Particulate Matter (PM1.0, PM2.5, PM10). It features real-time data logging to the cloud, enabling timely alerts and automated ventilation control."
+  },
+  {
+    "image": "Images/projects/App.jpg",
+    "title": "Smart Control System",
+    "year": "2025",
+    "partner": "SmartTech Systems",
+    "description": "Implemented an advanced Smart Control System tailored for smart city infrastructure, specifically enabling remote management of street lighting and municipal assets. The system includes a secure, custom-built mobile application that interfaces directly with our proprietary IoT hardware. This ensures encrypted communication, reduced latency, and a user-friendly interface for city administrators to monitor and control operations efficiently.<br><br>To Know about the APP -- <a href='https://krishna99-tech.github.io/SmartHome.github.io/'>Smart Home Control</a>"
+  },
+  {
+    "image": "Images/projects/Roomoccupancy.jpg",
+    "title": "Room Occupancy Monitor",
+    "year": "2025",
+    "partner": "Innovate+ Solutions",
+    "description": "Designed a real-time Room Occupancy Monitor specifically for the university's Placement Cell. This device detects the presence of individuals in interview rooms and updates a central dashboard instantly. It streamlines the interview process by allowing candidates and coordinators to view room availability live, reducing wait times and improving the overall efficiency of placement drives."
+  },
+  {
+    "image": "Images/projects/ESP32-PLC.jpg",
+    "title": "Esp32-PLC",
+    "year": "2025",
+    "partner": "Innovate+ Solutions",
+    "description": "Engineered an industrial-grade Programmable Logic Controller (PLC) powered by the ESP32 microcontroller. This system bridges traditional industrial automation with modern IoT connectivity, offering optically isolated inputs/outputs for noise immunity and DIN-rail compatibility. It serves as a powerful, low-cost alternative to commercial PLCs, supporting Modbus, Wi-Fi, and Bluetooth for seamless integration into Industry 4.0 smart factory ecosystems."
+  },
+  {
+    "image": "Images/projects/Buck.jpg",
+    "title": "Buck Converter",
+    "year": "2025",
+    "partner": "Innovate+ Solutions",
+    "description": "This is a Buck converter which  is a DC-DC step-down voltage regulator that maintains a constant, stable output voltage even when the input voltage varies between 7V to 32V DC. It efficiently converts higher DC voltage to a lower level (5V–30V adjustable) and includes protection circuits to safeguard against high-voltage spikes or sudden input fluctuations, ensuring a safe and reliable output."
+  },
+  {
+    "image": "Images/projects/Thermostat.jpg",
+    "title": "Thermostat",
+    "year": "2025",
+    "partner": "Innovate+ Solutions",
+    "description": "The *Thermo Smart* system is an intelligent temperature control solution designed for *Aquaculture ponds and PCB fabrication section, capable of automatically and manually managing **heaters and coolers. It can be operated both **locally and through an online dashboard, ensuring precise thermal regulation for optimal fish seed cultivation and the room temperature."
+  },
+  {
+    "image": "Images/projects/Lorawan.jpg",
+    "title": "Lorawan",
+    "year": "2025",
+    "partner": "Innovate+ Solutions",
+    "description": "Implemented a Long Range Wide Area Network (LoRaWAN) node designed for Industry 4.0 applications requiring long-range, low-power communication. Built with industrial-grade modules, this device ensures reliable data transmission over vast distances in challenging environments, making it ideal for agricultural monitoring, smart metering, and asset tracking where cellular coverage is limited."
+  },
+  {
+    "image": "Images/projects/Esp32-s3.jpg",
+    "title": "Esp32-S3",
+    "year": "2025",
+    "partner": "Innovate+ Solutions",
+    "description": "Developed a custom ESP32-S3 development board optimized for AIoT (Artificial Intelligence of Things) applications. This board exposes all GPIO pins for easy prototyping and includes onboard peripherals like RGB LEDs and easy USB-C debugging. It serves as a powerful platform for students and researchers to explore edge AI, voice recognition, and high-performance IoT projects."
+  },
+  {
+    "image": "Images/projects/optocoupler.jpg",
+    "title": "OptoCoupler",
+    "year": "2025",
+    "partner": "Innovate+ Solutions",
+    "description": "Designed a bi-directional Optocoupler isolation board to bridge the gap between industrial 24V logic and microcontroller 3.3V/5V logic. This module safely isolates sensitive microcontrollers from high-voltage industrial sensors and actuators, preventing electrical noise and voltage spikes from damaging the control circuitry."
+  },
+  {
+    "image": "Images/projects/CH340C-Programmer.jpg",
+    "title": "CH340C-Programmer",
+    "year": "2024",
+    "partner": "Innovate+ Solutions",
+    "description": "Developed a compact and reliable CH340C-based USB-to-TTL programmer specifically tailored for ESP8266 and ESP32 series chips. It features auto-reset circuitry for seamless firmware uploading without holding buttons, making the development and flashing process significantly faster and easier for custom PCB designs."
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "src": "Images/labGallery/ResearchArea.png",
+    "alt": "Main Research Area",
+    "title": "Main Research Area"
+  },
+  {
+    "src": "Images/labGallery/Labspace.jpg",
+    "alt": "Labspace",
+    "title": "Lab Space"
+  },
+  {
+    "src": "Images/labGallery/Equipment.jpg",
+    "alt": "Equipment",
+    "title": "Equipment"
+  },
+  {
+    "src": "Images/labGallery/Soldering.jpg",
+    "alt": "Soldering",
+    "title": "Soldering Station"
+  },
+  {
+    "src": "https://images.unsplash.com/photo-1581092921461-eab62e97a780?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    "alt": "Industry Meeting",
+    "title": "Assembling"
+  },
+  {
+    "src": "Images/labGallery/Working.jpg",
+    "alt": "Working",
+    "title": "Working & Performing Tasks"
+  },
+  {
+    "src": "Images/labGallery/Pcbdevelop.jpg",
+    "alt": "pcb-develop",
+    "title": "Developing PCB"
+  },
+  {
+    "src": "Images/labGallery/prototype.jpg",
+    "alt": "Testing",
+    "title": "Testing Prototype"
+  },
+  {
+    "src": "Images/labGallery/PcbMaster.jpg",
+    "alt": "PcbMaster",
+    "title": "PCB-Designer"
+  },
+  {
+    "src": "Images/labGallery/Discussion.jpg",
+    "alt": "Discussion",
+    "title": "Discussion"
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "image": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    "title": "IoT Fundamentals & Applications",
+    "date": "March 15, 2025",
+    "participants": "45 Participants",
+    "description": "A comprehensive workshop exploring IoT architecture, sensors, connectivity, and real-world applications across industries."
+  },
+  {
+    "image": "Images/Workshops/PcBInvitation.jpg",
+    "title": "PCB Designing",
+    "date": "August 08, 2025",
+    "participants": "30 Participants",
+    "description": "Hands-on workshop on kiCad tool and PCB-Designing."
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+    "title": "IoT Security & Privacy",
+    "date": "September 8, 2023",
+    "participants": "28 Participants",
+    "description": "Exploring security challenges in IoT ecosystems and implementing robust security measures for connected devices."
+  }
+]
