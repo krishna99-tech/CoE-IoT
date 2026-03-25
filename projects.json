@@ -35,7 +35,7 @@
     "description": "Designed a versatile RS-485 based Data Logger built for industrial environments. It reliably acquires data from various sensors and devices, storing it locally on an SD card for redundancy while simultaneously transmitting it to the cloud for real-time monitoring. This dual-storage approach ensures data integrity even during network outages, making it suitable for critical monitoring applications."
   },
       {
-    "image": "Images/projects/Energymeter.png",
+    "image": "Images/projects/Airquality.png",
     "title": "Indoor Air Quality Monitoring",
     "year": "2025",
     "partner": "Innovate+ Solutions",

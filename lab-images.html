@@ -584,6 +584,7 @@
                 <li class="nav-item"><a href="index.html#about">About</a></li>
                 <li class="nav-item"><a href="index.html#leadership">Leadership</a></li>
                 <li class="nav-item"><a href="index.html#gallery">Lab Gallery</a></li>
+                <li class="nav-item"><a href="lab-images.html">Photo Stream</a></li>
                 <li class="nav-item"><a href="index.html#workshops">Workshops</a></li>
                 <li class="nav-item"><a href="index.html#projects">Projects</a></li>
                 <li class="nav-item"><a href="index.html#pcbs">Latest PCBs</a></li>
@@ -669,31 +670,7 @@
     <script>
         (function(){
             // Image data
-            const images = [
-                { src: "Images/Gallery/Image1.jpg", caption: "Lab photo 1 — Pooja" },
-                { src: "Images/Gallery/Image2.jpg", caption: "Lab photo 2 — Pooja" },
-                { src: "Images/Gallery/Image5.jpg", caption: "Lab photo 5 — Workshop" },
-                { src: "Images/Gallery/image6.jpg", caption: "Lab photo 6 — Workshop" },
-                { src: "Images/Gallery/image7.jpg", caption: "Lab photo 7 — Workshop" },
-                { src: "Images/Gallery/Image8.jpg", caption: "Lab photo 8 — Workshop" },
-                { src: "Images/Gallery/Image9.jpg", caption: "Lab photo 9 — Workshop" },
-                { src: "Images/Gallery/Image3.jpg", caption: "Lab photo 3 — Workshop" },
-                { src: "Images/Gallery/Image4.jpg", caption: "Lab photo 4 — Workshop" },
-                { src: "Images/Gallery/Image10.jpg", caption: "Lab photo 10 — Workshop" },
-                { src: "Images/Gallery/Image11.jpg", caption: "Lab photo 11 — Internship June-2025" },
-                { src: "Images/Gallery/Image12.jpg", caption: "Lab photo 12 — Fun" },
-                { src: "Images/Gallery/image13.jpg", caption: "Lab photo 13 — PCB Master" },
-                { src: "Images/labGallery/ResearchArea.png", caption: "Main Research Area" },
-                { src: "Images/labGallery/Labspace.jpg", caption: "Lab Space" },
-                { src: "Images/labGallery/Equipment.jpg", caption: "Equipment" },
-                { src: "Images/labGallery/Soldering.jpg", caption: "Soldering Station" },
-                { src: "https://images.unsplash.com/photo-1581092921461-eab62e97a780?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80", caption: "Assembling" },
-                { src: "Images/labGallery/Working.jpg", caption: "Working & Performing Tasks" },
-                { src: "Images/labGallery/Pcbdevelop.jpg", caption: "Developing PCB" },
-                { src: "Images/labGallery/prototype.jpg", caption: "Testing Prototype" },
-                { src: "Images/labGallery/PcbMaster.jpg", caption: "PCB-Designer" },
-                { src: "Images/labGallery/Discussion.jpg", caption: "Discussion" }
-            ];
+            let images = [];
             
             // DOM elements
             const mainImage = document.getElementById('mainImage');
@@ -996,10 +973,15 @@
             
             // Initialize the gallery
             function init() {
-                initThumbnails();
-                initEventListeners();
-                goToImage(0);
-                // play();
+                fetch('lab-images.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        images = data;
+                        initThumbnails();
+                        initEventListeners();
+                        goToImage(0);
+                    })
+                    .catch(error => console.error('Error loading gallery images:', error));
                 
                 // Mobile Menu Toggle
                 document.querySelector('.menu-toggle').addEventListener('click', function() {

@@ -1,0 +1,21 @@
+[
+    { "src": "Images/Gallery/Image1.jpg", "caption": "Lab photo 1 — Pooja" },
+    { "src": "Images/Gallery/Image2.jpg", "caption": "Lab photo 2 — Pooja" },
+    { "src": "Images/Gallery/Image5.jpg", "caption": "Lab photo 5 — Workshop" },
+    { "src": "Images/Gallery/image6.jpg", "caption": "Lab photo 6 — Workshop" },
+    { "src": "Images/Gallery/image7.jpg", "caption": "Lab photo 7 — Workshop" },
+    { "src": "Images/Gallery/Image8.jpg", "caption": "Lab photo 8 — Workshop" },
+    { "src": "Images/Gallery/Image9.jpg", "caption": "Lab photo 9 — Workshop" },
+    { "src": "Images/Gallery/Image3.jpg", "caption": "Lab photo 3 — Workshop" },
+    { "src": "Images/Gallery/Image4.jpg", "caption": "Lab photo 4 — Workshop" },
+    { "src": "Images/Gallery/Image10.jpg", "caption": "Lab photo 10 — Workshop" },
+    { "src": "Images/Gallery/Image11.jpg", "caption": "Lab photo 11 — Internship June-2025" },
+    { "src": "Images/Gallery/Image12.jpg", "caption": "Lab photo 12 — Fun" },
+    { "src": "Images/Gallery/image13.jpg", "caption": "Lab photo 13 — PCB Master" },
+    { "src": "Images/Gallery/image14.jpg", "caption": "Workshop" },
+    { "src": "Images/Gallery/image15.jpg", "caption": "Workshop" },
+    { "src": "Images/Gallery/image16.jpg", "caption": "Workshop" },
+    { "src": "Images/Gallery/image17.jpg", "caption": "Workshop" },
+    { "src": "Images/Gallery/image18.jpg", "caption": "Workshop" },
+    { "src": "Images/Gallery/image19.jpg", "caption": "Workshop" }
+]
