@@ -1525,23 +1525,41 @@
         });
 
         // Generic function to fetch and render data
-        function loadData(url, containerId, renderFunction) {
-            fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                const container = document.getElementById(containerId);
-                if (!container) return;
+        async function loadData(url, containerId, renderFunction) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            // Check if container is a table body for correct row-based spinner placement
+            const isTable = container.tagName.toLowerCase() === 'tbody';
+            const loadingHtml = isTable 
+                ? '<tr><td colspan="100%" class="text-center"><div class="loader-container"><span class="loader"></span></div></td></tr>'
+                : '<div class="loader-container"><span class="loader"></span></div>';
+            
+            container.innerHTML = loadingHtml;
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const data = await response.json();
                 
                 container.innerHTML = '';
-                
+                if (!data || data.length === 0) {
+                    container.innerHTML = isTable 
+                        ? '<tr><td colspan="100%" class="text-center">No items available at this time.</td></tr>'
+                        : '<p class="text-center">No items available at this time.</p>';
+                    return;
+                }
+
                 data.forEach(item => {
-                    const element = renderFunction(item);
-                    container.appendChild(element);
+                    container.appendChild(renderFunction(item));
                 });
-            })
-            .catch(error => {
+            } catch (error) {
                 console.error(`Error loading data from ${url}:`, error);
-            });
+                const errorHtml = isTable
+                    ? '<tr><td colspan="100%" class="text-center text-accent">Failed to load content.</td></tr>'
+                    : '<p class="text-center text-accent">Failed to load content.</p>';
+                container.innerHTML = errorHtml;
+            }
         }
 
         // Renderers

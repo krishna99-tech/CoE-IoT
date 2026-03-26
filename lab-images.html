@@ -153,7 +153,7 @@
             -khtml-user-drag: none;
             -moz-user-drag: none;
             -o-user-drag: none;
-            user-drag: none;
+            -webkit-user-drag: none;
         }
         
         .container {
@@ -225,6 +225,7 @@
             border-radius: 8px;
             font-size: 1rem;
             transition: var(--transition);
+            -webkit-backdrop-filter: blur(5px);
             backdrop-filter: blur(5px);
         }
         
@@ -237,6 +238,7 @@
             padding: 6px 12px;
             border-radius: 20px;
             font-size: 0.9rem;
+            -webkit-backdrop-filter: blur(5px);
             backdrop-filter: blur(5px);
         }
         
@@ -402,6 +404,7 @@
             justify-content: center;
             cursor: pointer;
             transition: var(--transition);
+            -webkit-backdrop-filter: blur(5px);
             backdrop-filter: blur(5px);
         }
         
@@ -445,6 +448,7 @@
         
         .carousel.fullscreen .btn {
             background: rgba(255,255,255,0.2);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
         }
         
@@ -477,6 +481,7 @@
             cursor: pointer;
             transition: var(--transition);
             z-index: 1001;
+            -webkit-backdrop-filter: blur(5px);
             backdrop-filter: blur(5px);
         }
         
@@ -506,6 +511,7 @@
             justify-content: center;
             cursor: pointer;
             transition: var(--transition);
+            -webkit-backdrop-filter: blur(5px);
             backdrop-filter: blur(5px);
         }
         
@@ -621,7 +627,7 @@
                 </div>
             </div>
             
-            <button class="close-fullscreen" id="closeFullscreen">
+            <button class="close-fullscreen" id="closeFullscreen" title="Close Fullscreen" aria-label="Close Fullscreen">
                 <i class="fas fa-times"></i>
             </button>
             
@@ -654,8 +660,8 @@
             </div>
         </div>
 
-        <p style="text-align:center; margin-top:30px">
-            <a href="index.html" class="btn btn-outline" style="text-decoration:none">
+        <p class="text-center mt-30">
+            <a href="index.html" class="btn btn-outline no-decoration">
                 <i class="fas fa-arrow-left"></i> Back to Main Site
             </a>
         </p>
