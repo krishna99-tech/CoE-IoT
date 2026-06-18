@@ -4,3 +4,13 @@ node_modules/
 # Next.js build output
 .next/
 out/
+
+# OS Metadata files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.swp
+*.log
