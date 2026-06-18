@@ -15,7 +15,8 @@ Official website for the **Center of Excellence on IoT & Smart Factory**. This r
 ├── index.html          # Main landing page
 ├── lab-images.html     # Interactive gallery/photo stream page
 ├── README.md           # Project documentation
-├── *.json              # Data files for dynamic content (projects, members, etc.)
+├── data/               # Directory containing all JSON data files
+│   └── *.json
 └── Images/             # Directory containing all project and lab imagery
 ```
 
@@ -40,4 +41,3 @@ To update the website content, modify the corresponding JSON files:
 ## 🌐 Deployment
 
 This site is designed to be hosted on **GitHub Pages**. Simply push the changes to the `main` branch, and the site will be live at `https://coe-iot.vercel.app/`.
-
