@@ -11,13 +11,13 @@
     "title": "PCB Designing",
     "date": "August 08, 2025",
     "participants": "30 Participants",
-    "description": "Hands-on workshop on kiCad tool and PCB-Designing."
+    "description": "Make Your First PCB with Us! Hands-on workshop on PCB design and fabrication, guiding participants through the process of creating their own printed circuit boards for electronics projects."
   },
   {
     "image": "Images/Workshops/15Days_Project_Based_Internship_june_2026.png",
-    "title": "IoT Security & Privacy",
-    "date": "September 8, 2023",
-    "participants": "28 Participants",
-    "description": "Exploring security challenges in IoT ecosystems and implementing robust security measures for connected devices."
-  }
+    "title": "15 Days Project-Based Internship",
+    "date": "June 2, 2026",
+    "participants": "23 Participants",
+    "description": "Internet of Things (IoT) Project-Based Internship: A 15-day intensive program where participants will design, develop, and deploy IoT projects, gaining hands-on experience with sensors, microcontrollers | Industry Collaborator - Project Completion"
+  } 
 ]

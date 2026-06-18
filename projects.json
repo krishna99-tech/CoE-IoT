@@ -46,7 +46,7 @@
     "title": "Smart Control System",
     "year": "2025",
     "partner": "SmartTech Systems",
-    "description": "Implemented an advanced Smart Control System tailored for smart city infrastructure, specifically enabling remote management of street lighting and municipal assets. The system includes a secure, custom-built mobile application that interfaces directly with our proprietary IoT hardware. This ensures encrypted communication, reduced latency, and a user-friendly interface for city administrators to monitor and control operations efficiently.<br><br>To Know about the APP -- <a href='https://krishna99-tech.github.io/SmartHome.github.io/'>Smart Home Control</a>"
+    "description": "Implemented an advanced Smart Control System tailored for smart city infrastructure, specifically enabling remote management of street lighting and municipal assets. The system includes a secure, custom-built mobile application that interfaces directly with our proprietary IoT hardware. This ensures encrypted communication, reduced latency, and a user-friendly interface for city administrators to monitor and control operations efficiently.<br><br>To Know about the APP -- <a href='https://smart-sync-nu.vercel.app/'>Smart Home Control</a>"
   },
   {
     "image": "Images/projects/Roomoccupancy.jpg",
@@ -68,13 +68,6 @@
     "year": "2025",
     "partner": "Innovate+ Solutions",
     "description": "This is a Buck converter which  is a DC-DC step-down voltage regulator that maintains a constant, stable output voltage even when the input voltage varies between 7V to 32V DC. It efficiently converts higher DC voltage to a lower level (5V–30V adjustable) and includes protection circuits to safeguard against high-voltage spikes or sudden input fluctuations, ensuring a safe and reliable output."
-  },
-  {
-    "image": "Images/projects/Thermostat.jpg",
-    "title": "Thermostat",
-    "year": "2025",
-    "partner": "Innovate+ Solutions",
-    "description": "The *Thermo Smart* system is an intelligent temperature control solution designed for *Aquaculture ponds and PCB fabrication section, capable of automatically and manually managing **heaters and coolers. It can be operated both **locally and through an online dashboard, ensuring precise thermal regulation for optimal fish seed cultivation and the room temperature."
   },
   {
     "image": "Images/projects/Lorawan.jpg",
