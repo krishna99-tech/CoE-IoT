@@ -1,0 +1,26 @@
+[
+  {
+    "name": "ZF Commercial Vehicle Control Systems",
+    "logo": "Images/Zf.jpeg",
+    "description": "Primary funding partner and key collaborator in industrial automation and safety systems research.",
+    "type": "Funding Partner"
+  },
+  {
+    "name": "Ashok Leyland (Ennore Plant)",
+    "logo": "https://vectorseek.com/wp-content/uploads/2023/11/Ashok-Leyland-Icon-Logo-Vector.svg-.png",
+    "description": "Foundry Division projects: Furnace-1 Panel Energy Alert & Logging, IoT Viscosity Monitoring, Universal IoT Trainer Kit, Lab Screen Mirroring, Low-Cost Energy Meters, and Sand Plant Temp Monitoring.",
+    "type": "Industrial Partner"
+  },
+  {
+    "name": "Ashok Leyland (Sriperumbudur Plant)",
+    "logo": "https://vectorseek.com/wp-content/uploads/2023/11/Ashok-Leyland-Icon-Logo-Vector.svg-.png",
+    "description": "Foundry Division projects: IoT based temp & Conveyor Control, Smart Viscosity Measurement System, and Sand Plant Hopper Temperature Monitoring & Data Capturing.",
+    "type": "Industrial Partner"
+  },
+  {
+    "name": "Fuso Glass India Pvt Ltd",
+    "logo": "https://www.fuso.in/images/og-image.jpg",
+    "description": "Projects at Irungattukottai facility: Energy Monitoring, Quality Rejection Dashboard, Smart Viscosity Measurement (IoT), Safety 4.0 Dashboard, and JH 4.0 App Development.",
+    "type": "Industrial Partner"
+  }
+]

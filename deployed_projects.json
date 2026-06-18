@@ -1,0 +1,86 @@
+[
+  {
+    "title": "IoT based temp & Conveyor Control",
+    "year": "2024",
+    "partner": "Ashok Leyland (Sriperumbudur)",
+    "description": "Implementation of a real-time IoT-based temperature and conveyor control system for the Foundry Division to optimize production throughput and safety."
+  },
+  {
+    "title": "Energy Monitoring",
+    "year": "2024",
+    "partner": "Fuso Glass India",
+    "description": "An automated energy monitoring solution for the Irungattukottai facility to track power consumption patterns and identify energy-saving opportunities."
+  },
+  {
+    "title": "Furnace-1 Panel Energy Alert System",
+    "year": "2024",
+    "partner": "Ashok Leyland (Ennore)",
+    "description": "Developed a specialized alert system and data logger for Furnace-1 panels in the Foundry Division to monitor energy anomalies via IoT."
+  },
+  {
+    "title": "IoT Based Viscosity Data Capturing",
+    "year": "2024",
+    "partner": "Ashok Leyland (Ennore)",
+    "description": "A multi-oven viscosity monitoring system that captures and analyzes data in real-time to maintain optimal material quality in foundry processes."
+  },
+  {
+    "title": "Universal IoT Trainer Kit",
+    "year": "2024",
+    "partner": "Ashok Leyland (Ennore)",
+    "description": "Design and development of a custom universal IoT training platform for internal skill development within the Foundry Division."
+  },
+  {
+    "title": "Quality In-house Rejection Dashboard",
+    "year": "2024",
+    "partner": "Fuso Glass India",
+    "description": "A comprehensive dashboard application to track, visualize, and analyze in-house quality rejections at the Irungattukottai facility."
+  },
+  {
+    "title": "Smart Viscosity Measurement System Using IoT",
+    "year": "2024",
+    "partner": "Fuso Glass India",
+    "description": "Integration of smart sensors for automated viscosity measurement in glass production, featuring real-time cloud-based monitoring."
+  },
+  {
+    "title": "Safety 4.0 Application Dashboard",
+    "year": "2024",
+    "partner": "Fuso Glass India",
+    "description": "A Safety 4.0 initiative providing a real-time dashboard for monitoring workplace safety parameters and ensuring industrial compliance."
+  },
+  {
+    "title": "JH 4.0 Application Development",
+    "year": "2024",
+    "partner": "Fuso Glass India",
+    "description": "Digitizing Jishu Hozen (Autonomous Maintenance) processes through a custom application to improve machine reliability and performance."
+  },
+  {
+    "title": "Sand Plant – Lab Screen Mirroring System",
+    "year": "2024",
+    "partner": "Ashok Leyland (Ennore)",
+    "description": "Implementation of a centralized lab screen mirroring system and real-time dashboard for Sand Plant monitoring operations."
+  },
+  {
+    "title": "Smart Viscosity Measurement System",
+    "year": "2024",
+    "partner": "Ashok Leyland (Sriperumbudur)",
+    "description": "Automated measurement system for industrial liquids to ensure consistent foundry output quality through precise control."
+  },
+  {
+    "title": "Proto Design & Supply of Low-Cost Energy Meters",
+    "year": "2024",
+    "partner": "Ashok Leyland (Ennore)",
+    "description": "Prototyping and supply of cost-effective energy meters for distributed power monitoring across foundry operations."
+  },
+  {
+    "title": "Sand Plant Temperature Monitoring",
+    "year": "2024",
+    "partner": "Ashok Leyland (Ennore)",
+    "description": "Deployment of IoT sensors for continuous temperature monitoring in the sand plant to ensure process stability."
+  },
+  {
+    "title": "Sand Plant Hopper Temperature Monitoring",
+    "year": "2024",
+    "partner": "Ashok Leyland (Sriperumbudur)",
+    "description": "Advanced monitoring and data capturing system for sand plant hoppers to maintain optimal casting temperatures."
+  }
+]
